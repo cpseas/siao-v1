@@ -26,9 +26,5 @@ export const resetPassword = async values => {
 	let url = window.location.href
 	let params = new URL(url).searchParams
 	let token = params.get('token')
-	return await axios.post(`${API}/reset-password/${token}`, values, {
-		headers: {
-			Authorization: token
-		}
-	})
+	return await axios.post(`${API}/reset-password/${token}`, values)
 }

@@ -110,7 +110,7 @@ export const validateEmail = async (req, res) => {
 			text: 'Tu contraseña se cambiará!',
 			html: `
 					<b> Esto es HTML </b>
-					<a href="localhost:3000/reset-password/?token=${token}"> Restablecer Contraseña </a> 
+					<a href="localhost:3000/reset-password/${token}"> Restablecer Contraseña </a> 
 				`
 		})
 
