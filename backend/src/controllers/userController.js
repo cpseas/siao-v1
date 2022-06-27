@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import nodemailer from 'nodemailer'
 
 import User from '../models/User.js'
 import config from '../config/config.js'
@@ -86,18 +87,19 @@ export const validateEmail = async (req, res) => {
 
 		const user = await User.findOne({email: email})
 
+		
 		if(!user) {
 			return res.status(401).json({msg: 'El correo no existe!'})
 		}
-
+		
 		const token = createToken(user, config.EXPIRES.LOGIN)
 
 		const transporter = nodemailer.createTransport({
 			host: 'smtp.ethereal.email',
 			port: 587,
 			auth : {
-				user: 'cxfcbjnw2cgxk2gp@ethereal.email',
-				pass: 'chFj91DUTd5MQ49g6t'
+				user: 'alford.morar24@ethereal.email',
+				pass: 'xq8Yhqc1x9yNnZsBJX'
 			}
 		})
 
@@ -108,7 +110,7 @@ export const validateEmail = async (req, res) => {
 			text: 'Tu contraseña se cambiará!',
 			html: `
 					<b> Esto es HTML </b>
-					<a href="localhost:3000/reset-password/${token}"> Restablecer Contraseña </a> 
+					<a href="localhost:3000/reset-password/?token=${token}"> Restablecer Contraseña </a> 
 				`
 		})
 

@@ -21,7 +21,7 @@ function App() {
 						<Route index element={<Login />} />
 						<Route path="register" element={<Register />} />
 						<Route path="forget-password" element={<ForgetPassword />} />
-						<Route path="reset-password/:token" element={<ResetPassword />} />
+						<Route path="reset-password/*" element={<ResetPassword />} />
 					</Route>
 					<Route path="/dashboard" element={<HomeLayouts />}>
 						<Route path="profile" element={<Profile />} />

@@ -16,8 +16,7 @@ const ForgetPassword = () => {
     })
 
     const handleSubmit = async (values) => {
-        console.log(values)
-        const res = await forgetPassword(values)
+        await forgetPassword(values)
     }
 
     return (

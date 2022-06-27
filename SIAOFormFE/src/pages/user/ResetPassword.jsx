@@ -15,8 +15,7 @@ const ResetPassword = () => {
     })
 
     const handleSubmit = async values => {
-        console.log(values)
-
+        await resetPassword(values)
     }
 
     return (
