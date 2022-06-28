@@ -6,8 +6,7 @@ import { useAuth } from '../hooks/useAuth'
 import { getIdentification } from '../helpers/decoding'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faDoorOpen, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 const HomeLayouts = () => {
     const { user, token, logout } = useAuth()
@@ -41,22 +40,33 @@ const HomeLayouts = () => {
                     <div>
                         <Link to="/dashboard/profile">
                             {user}
-                            <FontAwesomeIcon icon={faUser} size="2x" color="#07392a"></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faUser} size="2x" color="#07392a" />
                         </Link>
                         <a onClick={logout} style={{ cursor: 'pointer' }}>
                             Salir
-                            <FontAwesomeIcon
-                                icon={faDoorOpen}
-                                size="2x"
-                                color="rgb(169,0,0)"
-                            ></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faDoorOpen} size="2x" color="rgb(169,0,0)"
+                            />
                         </a>
                     </div>
                 </div>
                 <div className="senara-content-menu">
-                    <div className="senara-content"></div>
-                    <div className="senara-content"></div>
-                    <div className="senara-content"></div>
+                    <div className='title-container'>
+                        <p> Formularios </p>
+                    </div>
+                    <div className='forms-container'>
+                        <div className="form-item">
+                            <FontAwesomeIcon icon={faCalendar} />
+                            <p> Formulario de Quejas </p>
+                        </div>
+                        <div className="form-item">
+                            <FontAwesomeIcon icon={faCalendar} />
+                            <p> Solicitud de Riego </p>
+                        </div>
+                        <div className="form-item">
+                            <FontAwesomeIcon icon={faCalendar} />
+                            <p> Inscripción en Plan de Riego DRAT </p>
+                        </div>
+                    </div>
                 </div>
                 <Outlet context={[data, setData]} />
             </div>

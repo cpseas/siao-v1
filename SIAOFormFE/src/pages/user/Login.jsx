@@ -16,26 +16,37 @@ const Login = () => {
 	if (user) return <Navigate to="/dashboard" />
 
 	const inicioSeccionShema = Yup.object().shape({
-		email: Yup.string().email('Email no valido').required('El email es obligatorio'),
+		emailOrUser: Yup.lazy((value = "") =>
+			value.includes("@")
+				? Yup.string()
+					.email("Email no valido")
+					.required("Este campo es obligatorio")
+					.typeError("Este campo es obligatorio")
+				: Yup.string().required("Este campo es obligatorio")
+		),
 		password: Yup.string().required('Es requerida la contraseña')
 	})
 
 	const [validUsuario, setvalidUsuario] = useState()
 
 	const handleSubmit = async values => {
-		await loginUser(values)
-			.then(res => {
-				if (res.status === 200) {
-					setvalidUsuario(true)
-					login(res.data.token)
-				}
-			})
-			.catch(err => {
-				console.log(err)
-				if (res.response.status === 401) {
-					setvalidUsuario(false)
-				}
-			})
+		let object = {
+			emailOrUser: values.emailOrUser,
+			password: values.password,
+		}
+		try {
+			let res = await loginUser(object)
+
+			if (res.status === 200) {
+				setvalidUsuario(true)
+
+				setTimeout(() => {
+					login(res.data.token, res.data.fullName)
+				}, 2000)
+			}
+		} catch (error) {
+			setvalidUsuario(false)
+		}
 	}
 
 	return (
@@ -49,7 +60,7 @@ const Login = () => {
 
 				<Formik
 					initialValues={{
-						email: 'marars@gmail.com',
+						emailOrUser: 'marars@gmail.com',
 						password: '123qweasd'
 					}}
 					onSubmit={values => { handleSubmit(values) }}
@@ -61,13 +72,13 @@ const Login = () => {
 								<Form className="senara-form form-login">
 
 									<div className="senara-form-group">
-										{errors.email && touched.email
-											? <a> {errors.email} </a> : null
+										{errors.emailOrUser && touched.emailOrUser
+											? <a> {errors.emailOrUser} </a> : null
 										}
 										<Field
-											id="email"
-											type="email"
-											name="email"
+											id="emailOrUser"
+											type="text"
+											name="emailOrUser"
 											className="floating-input"
 											placeholder=" "
 										/>

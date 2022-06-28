@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useOutletContext } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faKey, faAddressCard, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+
 import { useAuth } from '../../hooks/useAuth'
 
 const Profile = () => {
@@ -97,6 +101,7 @@ const Profile = () => {
                                         value={data.fullName}
                                         disabled={true}
                                     />
+                                    <FontAwesomeIcon icon={faAddressCard} />
                                 </div>
                                 <div className="senara-form-group">
                                     {errors.email && touched.email ? (
@@ -111,6 +116,7 @@ const Profile = () => {
                                         value={data.email}
                                         disabled={true}
                                     />
+                                    <FontAwesomeIcon icon={faEnvelope} />
                                 </div>
                                 <div className="senara-form-group">
                                     {errors.userName && touched.userName ? (
@@ -125,6 +131,7 @@ const Profile = () => {
                                         value={data.userName}
                                         disabled={true}
                                     />
+                                    <FontAwesomeIcon icon={faUser} />
                                 </div>
                                 <div className="senara-form-group">
                                     {errors.password && touched.password ? (
@@ -139,6 +146,7 @@ const Profile = () => {
                                         value={data.password}
                                         disabled={true}
                                     />
+                                    <FontAwesomeIcon icon={faKey} />
                                 </div>
                                 <div className="senara-form-group">
                                     {errors.phone && touched.phone ? (
@@ -151,6 +159,7 @@ const Profile = () => {
                                         placeholder="Teléfono"
                                         className="floating-input"
                                     />
+                                    <FontAwesomeIcon icon={faPhone} />
                                 </div>
                             </div>
                             <div>
