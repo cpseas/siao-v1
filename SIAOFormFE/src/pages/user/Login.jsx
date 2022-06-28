@@ -4,7 +4,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import { useAuth } from "../../hooks/useAuth";
 import { loginUser } from "../../services/userServices";
@@ -56,13 +56,15 @@ const Login = () => {
         <Logo />
         <div className="senara-content-legend-auth">
           <legend className="senara-tagline">Bienvenido</legend>
-          <legend className="senara-description-page">Iniciar Sesión</legend>
+          <legend className="senara-description-page">
+            Ingrese sus credenciales
+          </legend>
         </div>
 
         <Formik
           initialValues={{
             emailOrUser: "Chris0911",
-            password: "12345678",
+            password: "",
           }}
           onSubmit={(values) => {
             handleSubmit(values);
@@ -73,10 +75,10 @@ const Login = () => {
             return (
               <>
                 <Form className="senara-form form-login">
+                  {errors.emailOrUser && touched.emailOrUser ? (
+                    <a className="a-alert"> {errors.emailOrUser} </a>
+                  ) : null}
                   <div className="senara-form-group">
-                    {errors.emailOrUser && touched.emailOrUser ? (
-                      <a> {errors.email} </a>
-                    ) : null}
                     <Field
                       id="emailOrUser"
                       type="text"
@@ -86,13 +88,13 @@ const Login = () => {
                     />
                     <span className="highlight"></span>
                     <label>Correo o Usuario</label>
-                    <FontAwesomeIcon icon={faKey} />
+                    <FontAwesomeIcon icon={faEnvelope} />
                   </div>
+                  {errors.password && touched.password ? (
+                    <a className="a-alert"> {errors.password} </a>
+                  ) : null}
 
                   <div className="senara-form-group">
-                    {errors.password && touched.password ? (
-                      <a> {errors.password} </a>
-                    ) : null}
                     <Field
                       id="password"
                       type="password"
@@ -104,13 +106,15 @@ const Login = () => {
                     <label>Contraseña</label>
                     <FontAwesomeIcon icon={faKey} />
                   </div>
-
-                  <input
-                    type="submit"
-                    className="senara-btn-primary btn-center max-c"
-                    value="Iniciar Sesión"
-                  />
+                  <div className="container-notfound">
+                    <input
+                      type="submit"
+                      className="senara-btn-primary btn-center max-c"
+                      value="Iniciar Sesión"
+                    />
+                  </div>
                 </Form>
+
                 <div className="senara-actions">
                   <Link to="/register"> Crear Cuenta </Link>
                   <Link to="/forget-password"> ¿Olvidó su contraseña? </Link>
