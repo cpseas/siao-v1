@@ -55,20 +55,28 @@ const HomeLayouts = () => {
                     </div>
                     <div className='forms-container'>
                         <div className="form-item">
-                            <FontAwesomeIcon icon={faCalendar} />
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
                             <p> Formulario de Quejas </p>
                         </div>
                         <div className="form-item">
-                            <FontAwesomeIcon icon={faCalendar} />
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
                             <p> Solicitud de Riego </p>
                         </div>
                         <div className="form-item">
-                            <FontAwesomeIcon icon={faCalendar} />
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
                             <p> Inscripción en Plan de Riego DRAT </p>
                         </div>
                     </div>
                 </div>
-                <Outlet context={[data, setData]} />
+                <div className="senara-content">
+                    <Outlet context={[data, setData]} />
+                </div>
             </div>
         </div>
     )
