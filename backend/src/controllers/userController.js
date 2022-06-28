@@ -52,13 +52,26 @@ export const register = async (req, res) => {
 
 // Login User
 export const login = async (req, res) => {
-<<<<<<< HEAD
-  const { email, password } = req.body;
+  const { emailOrUser, password } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    let user = {};
+
+    const userByEmail = await User.findOne({ email: emailOrUser });
+
+    if (!userByEmail) {
+      const userByUser = await User.findOne({ userName: emailOrUser });
+      if (userByUser) {
+        user = userByUser;
+      }
+    } else {
+      user = userByEmail;
+    }
+
     if (!user) {
-      return res.status(401).json({ msg: "Este usuario no existe!" });
+      return res
+        .status(401)
+        .json({ msg: "Este usuario o correo no fue encontrado" });
     }
 
     const isMatch = await user.comparePassword(password);
@@ -67,45 +80,12 @@ export const login = async (req, res) => {
       const token = createToken(user, config.EXPIRES.LOGIN);
       return res.status(200).json({ token: token });
     }
+
     return res.status(401).json({ msg: "Contraseña incorrecta!" });
   } catch (error) {
     return res.status(500).json({ msg: "Error Inesperado!" });
   }
 };
-=======
-    const { emailOrUser, password } = req.body
-
-    try {
-        let user = {}
-
-        const userByEmail = await User.findOne({ email: emailOrUser })
-
-        if (!userByEmail) {
-            const userByUser = await User.findOne({ userName: emailOrUser });
-            if (userByUser) {
-                user = userByUser
-            }
-        } else {
-            user = userByEmail
-        }
-
-        if (!user) {
-            return res.status(401).json({ msg: "Este usuario o correo no fue encontrado" })
-        }
-
-        const isMatch = await user.comparePassword(password)
-
-        if (isMatch) {
-            const token = createToken(user, config.EXPIRES.LOGIN)
-            return res.status(200).json({ token: token })
-        }
-
-        return res.status(401).json({ msg: "Contraseña incorrecta!" })
-    } catch (error) {
-        return res.status(500).json({ msg: "Error Inesperado!" })
-    }
-}
->>>>>>> d7597f550e96154b63675b0a6bb5d32b35b9a3aa
 
 // Get User Info
 export const getUser = async (req, res) => {
