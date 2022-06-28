@@ -61,8 +61,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            email: "",
-            password: "",
+            emailOrUser: "Chris0911",
+            password: "12345678",
           }}
           onSubmit={(values) => {
             handleSubmit(values);
@@ -74,13 +74,13 @@ const Login = () => {
               <>
                 <Form className="senara-form form-login">
                   <div className="senara-form-group">
-                    {errors.email && touched.email ? (
+                    {errors.emailOrUser && touched.emailOrUser ? (
                       <a> {errors.email} </a>
                     ) : null}
                     <Field
-                      id="email"
-                      type="email"
-                      name="email"
+                      id="emailOrUser"
+                      type="text"
+                      name="emailOrUser"
                       className="floating-input"
                       placeholder=" "
                     />
