@@ -1,11 +1,11 @@
-import {createContext, useContext, useMemo} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {useLocalStorage} from './useLocalStorage'
-import {getFullName} from '../helpers/Decoding'
+import { createContext, useContext, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useLocalStorage } from './useLocalStorage'
+import { getFullName } from '../helpers/decoding'
 
 const AuthContext = createContext()
 
-export const AuthProvider = ({children}) => {
+export const AuthProvider = ({ children }) => {
 	const [token, setToken] = useLocalStorage('token', null)
 	const [user, setUser] = useLocalStorage('user', null)
 	const navigate = useNavigate()
@@ -13,13 +13,13 @@ export const AuthProvider = ({children}) => {
 	const login = async token => {
 		setToken(token)
 		setUser(getFullName(token))
-		navigate('/dashboard', {replace: true})
+		navigate('/dashboard', { replace: true })
 	}
 
 	const logout = () => {
 		setToken(null)
 		setUser(null)
-		navigate('/', {replace: true})
+		navigate('/', { replace: true })
 	}
 
 	const value = useMemo(

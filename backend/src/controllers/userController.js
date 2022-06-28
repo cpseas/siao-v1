@@ -43,24 +43,37 @@ export const register = async (req, res) => {
 
 // Login User
 export const login = async (req, res) => {
-	const {email, password} = req.body
+    const { emailOrUser, password } = req.body
 
-	try {
-		const user = await User.findOne({email})
-		if (!user) {
-			return res.status(401).json({msg: 'Este usuario no existe!'})
-		}
+    try {
+        let user = {}
 
-		const isMatch = await user.comparePassword(password)
+        const userByEmail = await User.findOne({ email: emailOrUser })
 
-		if (isMatch) {
-			const token = createToken(user, config.EXPIRES.LOGIN)
-			return res.status(200).json({token: token})
-		}
-		return res.status(401).json({msg: 'Contraseña incorrecta!'})
-	} catch (error) {
-		return res.status(500).json({msg: 'Error Inesperado!'})
-	}
+        if (!userByEmail) {
+            const userByUser = await User.findOne({ userName: emailOrUser });
+            if (userByUser) {
+                user = userByUser
+            }
+        } else {
+            user = userByEmail
+        }
+
+        if (!user) {
+            return res.status(401).json({ msg: "Este usuario o correo no fue encontrado" })
+        }
+
+        const isMatch = await user.comparePassword(password)
+
+        if (isMatch) {
+            const token = createToken(user, config.EXPIRES.LOGIN)
+            return res.status(200).json({ token: token })
+        }
+
+        return res.status(401).json({ msg: "Contraseña incorrecta!" })
+    } catch (error) {
+        return res.status(500).json({ msg: "Error Inesperado!" })
+    }
 }
 
 // Get User Info
