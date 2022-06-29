@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, useOutletContext } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faKey, faAddressCard, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+
 import { useAuth } from '../../hooks/useAuth'
 
 const Profile = () => {
@@ -66,179 +70,187 @@ const Profile = () => {
     }
 
     return (
-        <div className="senara-content-login senara-content-sm-login">
-            <div className="senara-tagline">Perfil</div>
-            <div className="senara-form"></div>
-            <Formik
-                initialValues={{
-                    phone: '',
-                    province: '',
-                    canton: '',
-                    district: '',
-                    exactAddress: ''
-                }}
-                onSubmit={values => handleSubmit(values)}
-                validationSchema={profileSchema}
-            >
-                {({ errors, touched, setFieldValue }) => {
-                    return (
-                        <Form className="section-form-two-col">
-                            <div>
-                                <div className="senara-form-group">
-                                    {errors.fullName && touched.fullName ? (
-                                        <div className="senara-actions">{errors.fullName}</div>
-                                    ) : null}
-                                    <Field
-                                        id="fullName"
-                                        name="fullName"
-                                        type="text"
-                                        placeholder="Nombre"
-                                        className="floating-input"
-                                        value={data.fullName}
-                                        disabled={true}
-                                    />
+        <>
+            <div className='title-container'>
+                <p> Perfil </p>
+            </div>
+            <div className="senara-forms">
+                <Formik
+                    initialValues={{
+                        phone: '',
+                        province: '',
+                        canton: '',
+                        district: '',
+                        exactAddress: ''
+                    }}
+                    onSubmit={values => handleSubmit(values)}
+                    validationSchema={profileSchema}
+                >
+                    {({ errors, touched, setFieldValue }) => {
+                        return (
+                            <Form className="forms-container">
+                                <div className="forms-content">
+                                    <div>
+                                        <div className="senara-form-group">
+                                            {errors.fullName && touched.fullName ? (
+                                                <div className="senara-actions">{errors.fullName}</div>
+                                            ) : null}
+                                            <Field
+                                                id="fullName"
+                                                name="fullName"
+                                                type="text"
+                                                placeholder="Nombre"
+                                                className="floating-input"
+                                                value={data.fullName}
+                                                disabled={true}
+                                            />
+                                            <FontAwesomeIcon icon={faAddressCard} />
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.email && touched.email ? (
+                                                <div className="senara-actions">{errors.email}</div>
+                                            ) : null}
+                                            <Field
+                                                id="email"
+                                                name="email"
+                                                type="email"
+                                                placeholder="Correo"
+                                                className="floating-input"
+                                                value={data.email}
+                                                disabled={true}
+                                            />
+                                            <FontAwesomeIcon icon={faEnvelope} />
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.userName && touched.userName ? (
+                                                <div className="senara-actions">{errors.userName}</div>
+                                            ) : null}
+                                            <Field
+                                                id="userName"
+                                                name="userName"
+                                                type="text"
+                                                placeholder="Nombre de Usuario"
+                                                className="floating-input"
+                                                value={data.userName}
+                                                disabled={true}
+                                            />
+                                            <FontAwesomeIcon icon={faUser} />
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.password && touched.password ? (
+                                                <div className="senara-actions">{errors.password}</div>
+                                            ) : null}
+                                            <Field
+                                                id="password"
+                                                name="password"
+                                                type="password"
+                                                placeholder="Contraseña"
+                                                className="floating-input"
+                                                value={data.password}
+                                                disabled={true}
+                                            />
+                                            <FontAwesomeIcon icon={faKey} />
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.phone && touched.phone ? (
+                                                <div className="senara-actions">{errors.phone}</div>
+                                            ) : null}
+                                            <Field
+                                                id="phone"
+                                                name="phone"
+                                                type="tel"
+                                                placeholder="Teléfono"
+                                                className="floating-input"
+                                            />
+                                            <FontAwesomeIcon icon={faPhone} />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="senara-form-group">
+                                            {errors.province && touched.province ? (
+                                                <div className="senara-actions">{errors.province}</div>
+                                            ) : null}
+                                            <Field
+                                                id="province"
+                                                name="province"
+                                                as="select"
+                                                multiple={false}
+                                                className="floating-select"
+                                                value={statusProvincia}
+                                                onChange={e => loadCantons(e, setFieldValue)}
+                                            >
+                                                <option value=""> Seleccione una Provincia </option>
+                                                {provinces &&
+                                                    provinces.map((value, key) => {
+                                                        return <option key={key} value={value[0]}> {value[1]} </option>
+                                                    })
+                                                }
+                                            </Field>
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.canton && touched.canton ? (
+                                                <div className="senara-actions">{errors.canton}</div>
+                                            ) : null}
+                                            <Field
+                                                id="canton"
+                                                name="canton"
+                                                as="select"
+                                                multiple={false}
+                                                className="floating-select"
+                                                value={statusCanton}
+                                                disabled={statusProvincia === '' && true}
+                                                onChange={e => loadDistricts(e, setFieldValue)}
+                                            >
+                                                <option value=""> Seleccione un Cantón </option>
+                                                {cantons &&
+                                                    cantons.map((value, key) => {
+                                                        return <option key={key} value={value[0]}> {value[1]} </option>
+                                                    })
+                                                }
+                                            </Field>
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.district && touched.district ? (
+                                                <div className="senara-actions">{errors.district}</div>
+                                            ) : null}
+                                            <Field
+                                                id="district"
+                                                name="district"
+                                                as="select"
+                                                multiple={false}
+                                                className="floating-select"
+                                                disabled={statusCanton === '' && true}
+                                            >
+                                                <option value=""> Seleccione un Distrito </option>
+                                                {districts &&
+                                                    districts.map((value, key) => {
+                                                        return <option key={key} value={value[0]}> {value[1]} </option>
+                                                    })
+                                                }
+                                            </Field>
+                                        </div>
+                                        <div className="senara-form-group">
+                                            {errors.exactAddress && touched.exactAddress ? (
+                                                <div className="senara-actions">{errors.exactAddress}</div>
+                                            ) : null}
+                                            <Field
+                                                id="exactAddress"
+                                                name="exactAddress"
+                                                as="textarea"
+                                                className="floating-textarea"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="senara-form-group">
-                                    {errors.email && touched.email ? (
-                                        <div className="senara-actions">{errors.email}</div>
-                                    ) : null}
-                                    <Field
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        placeholder="Correo"
-                                        className="floating-input"
-                                        value={data.email}
-                                        disabled={true}
-                                    />
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.userName && touched.userName ? (
-                                        <div className="senara-actions">{errors.userName}</div>
-                                    ) : null}
-                                    <Field
-                                        id="userName"
-                                        name="userName"
-                                        type="text"
-                                        placeholder="Nombre de Usuario"
-                                        className="floating-input"
-                                        value={data.userName}
-                                        disabled={true}
-                                    />
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.password && touched.password ? (
-                                        <div className="senara-actions">{errors.password}</div>
-                                    ) : null}
-                                    <Field
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        placeholder="Contraseña"
-                                        className="floating-input"
-                                        value={data.password}
-                                        disabled={true}
-                                    />
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.phone && touched.phone ? (
-                                        <div className="senara-actions">{errors.phone}</div>
-                                    ) : null}
-                                    <Field
-                                        id="phone"
-                                        name="phone"
-                                        type="tel"
-                                        placeholder="Teléfono"
-                                        className="floating-input"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <div className="senara-form-group">
-                                    {errors.province && touched.province ? (
-                                        <div className="senara-actions">{errors.province}</div>
-                                    ) : null}
-                                    <Field
-                                        id="province"
-                                        name="province"
-                                        as="select"
-                                        multiple={false}
-                                        className="floating-select"
-                                        value={statusProvincia}
-                                        onChange={e => loadCantons(e, setFieldValue)}
-                                    >
-                                        <option value=""> Seleccione una Provincia </option>
-                                        {provinces &&
-                                            provinces.map((value, key) => {
-                                                return <option key={key} value={value[0]}> {value[1]} </option>
-                                            })
-                                        }
-                                    </Field>
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.canton && touched.canton ? (
-                                        <div className="senara-actions">{errors.canton}</div>
-                                    ) : null}
-                                    <Field
-                                        id="canton"
-                                        name="canton"
-                                        as="select"
-                                        multiple={false}
-                                        className="floating-select"
-                                        value={statusCanton}
-                                        disabled={statusProvincia === '' && true}
-                                        onChange={e => loadDistricts(e, setFieldValue)}
-                                    >
-                                        <option value=""> Seleccione un Cantón </option>
-                                        {cantons &&
-                                            cantons.map((value, key) => {
-                                                return <option key={key} value={value[0]}> {value[1]} </option>
-                                            })
-                                        }
-                                    </Field>
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.district && touched.district ? (
-                                        <div className="senara-actions">{errors.district}</div>
-                                    ) : null}
-                                    <Field
-                                        id="district"
-                                        name="district"
-                                        as="select"
-                                        multiple={false}
-                                        className="floating-select"
-                                        disabled={statusCanton === '' && true}
-                                    >
-                                        <option value=""> Seleccione un Distrito </option>
-                                        {districts &&
-                                            districts.map((value, key) => {
-                                                return <option key={key} value={value[0]}> {value[1]} </option>
-                                            })
-                                        }
-                                    </Field>
-                                </div>
-                                <div className="senara-form-group">
-                                    {errors.exactAddress && touched.exactAddress ? (
-                                        <div className="senara-actions">{errors.exactAddress}</div>
-                                    ) : null}
-                                    <Field
-                                        id="exactAddress"
-                                        name="exactAddress"
-                                        as="textarea"
-                                        className="floating-textarea"
-                                    />
-                                </div>
-                            </div>
-                            <div>
                                 <button type="submit" className="senara-btn-primary">
                                     Guardar
                                 </button>
-                            </div>
-                        </Form>
-                    )
-                }}
-            </Formik>
-        </div>
+                            </Form>
+                        )
+                    }}
+                </Formik>
+            </div>
+        </>
     )
 }
 
