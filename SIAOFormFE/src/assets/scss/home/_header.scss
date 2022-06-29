@@ -1,40 +1,72 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use "base/variables" as v;
+@use "base/mixins" as m;
 
 .senara-header {
-    background-color: v.$blanco;
-    padding: 1rem 2rem;
-    box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, .4);
+  background-color: v.$blanco;
+  padding: 3rem 2rem;
+  box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  margin: 10px;
 
-    @include m.tablet {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  @include m.tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.4rem;
+
+    span {
+      font-weight: 700;
+      color: v.$verdeOscuro;
     }
+  }
 
-    p {
-        margin: 0;
-        font-size: 1.4rem;
+  h4 {
+    margin: 0;
+    font-size: 3rem;
+    color: v.$verdeOscuro;
+  }
 
-        span {
-            font-weight: 700;
-            color: v.$verdeOscuro;
-        }
+  .close-session {
+    @include m.boton(v.$blanco, darken(v.$verdeClaro, 20%));
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    > i {
+      padding-right: 0.5rem;
     }
+  }
 
-    h4 {
-        margin: 0;
-        font-size: 2rem;
-        color: v.$verdeOscuro;
+  .senara-logo-header {
+    margin: 0;
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+
+    .senara-img-logo-header {
+      width: 100%;
+      background-image: url("../img/logo_letra.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
+  }
 
-    .close-session {
-        @include m.boton (v.$blanco, darken(v.$verdeClaro, 20%), );
-        padding: 1rem;
-        border-radius: .5rem;
-
-        >i {
-            padding-right: .5rem;
-        }
+  .senara-icon-header {
+    display: grid;
+    gap: 25px;
+    background-position: center center;
+    align-items: center;
+    margin-right: 2rem;
+    svg {
+      padding-left: 1.5rem;
     }
+    .logout-header {
+      color: red;
+      cursor: pointer;
+    }
+  }
 }
