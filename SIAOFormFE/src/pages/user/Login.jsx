@@ -19,9 +19,9 @@ const Login = () => {
     emailOrUser: Yup.lazy((value = "") =>
       value.includes("@")
         ? Yup.string()
-            .email("Email no valido")
-            .required("Este campo es obligatorio")
-            .typeError("Este campo es obligatorio")
+          .email("Email no valido")
+          .required("Este campo es obligatorio")
+          .typeError("Este campo es obligatorio")
         : Yup.string().required("Este campo es obligatorio")
     ),
     password: Yup.string().required("Es requerida la contraseña"),
@@ -63,8 +63,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            emailOrUser: "Chris0911",
-            password: "",
+            emailOrUser: "marars@gmail.com",
+            password: "123qweasd",
           }}
           onSubmit={(values) => {
             handleSubmit(values);
