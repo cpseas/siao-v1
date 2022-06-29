@@ -5,9 +5,8 @@ import { getUser } from "../services/userServices";
 import { useAuth } from "../hooks/useAuth";
 import { getIdentification } from "../helpers/decoding";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDoorOpen } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faDoorOpen, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 const HomeLayouts = () => {
   const { user, token, logout } = useAuth();
@@ -25,33 +24,63 @@ const HomeLayouts = () => {
   }, []);
 
   if (!user) return <Navigate to="/" />;
-
-  return (
-    <div className="senara-dashboard">
-      <div className="senara-content-principal">
-        <div className="senara-header">
-          <div className="senara-logo-header">
-            <div className="senara-img-logo-header"></div>
-          </div>
-          <div>
-            <h4 className="senara-descrip-page">
-              DIRECCIÓN DISTRITO DE RIEGO ARENAL TEMPISQUE
-            </h4>
-          </div>
-          <div className="senara-icon-header">
-            <Link to="/dashboard/profile">
-              {user}
-              <FontAwesomeIcon icon={faUser} size="2x" color="#07392a" />
-            </Link>
-            <a className="logout-header" onClick={logout}>
-              Salir
-              <FontAwesomeIcon
-                icon={faDoorOpen}
-                size="2x"
-                color="rgb(169,0,0)"
-              />
-            </a>
-          </div>
+  
+    return (
+        <div className="senara-dashboard">
+            <div className="senara-header">
+                <div className="senara-logo">
+                    <div className="senara-img-logo"></div>
+                </div>
+                <div>
+                    <div className="senara-description-page">
+                        DIRECCION DISTRITO DE RIEGO ARENAL TEMPISQUE
+                    </div>
+                </div>
+              <div className="senara-icon-header">
+                  <Link to="/dashboard/profile">
+                      {user}
+                      <FontAwesomeIcon icon={faUser} size="2x" color="#07392a" />
+                  </Link>
+                  <a className="logout-header" onClick={logout}>
+                      Salir
+                      <FontAwesomeIcon
+                      icon={faDoorOpen}
+                      size="2x"
+                      color="rgb(169,0,0)"
+                      />
+                  </a>
+              </div>
+            </div>
+            <div className="senara-content-principal">
+                <div className="senara-content-menu">
+                    <div className='title-container'>
+                        <p> Formularios </p>
+                    </div>
+                    <div className='forms-container'>
+                        <div className="form-item">
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
+                            <p> Formulario de Quejas </p>
+                        </div>
+                        <div className="form-item">
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
+                            <p> Solicitud de Riego </p>
+                        </div>
+                        <div className="form-item">
+                            <div className="svg-block">
+                                <FontAwesomeIcon icon={faCalendar} />
+                            </div>
+                            <p> Inscripción en Plan de Riego DRAT </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="senara-content">
+                    <Outlet context={[data, setData]} />
+                </div>
+            </div>
         </div>
         <div className="senara-content-menu">
           <div className="senara-content"></div>

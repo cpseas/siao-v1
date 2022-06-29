@@ -2,25 +2,34 @@
 @use 'base/mixins'as m;
 
 .senara-dashboard {
+    display: grid;
+    grid-template-rows: 120px 1fr;
     //background-color: v.$grisClaro;
     background-color: v.$bgGris;
     overflow: hidden;
 
     @include m.tablet {
-        display: flex;
+        // display: flex;
         height: 100vh;
     }
 
     .senara-content-principal {
-        flex: 1;
-    }
-
-    .senara-content {
-        padding: 0 2rem;
-        height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+    }
+    
+    .senara-content {
+        background-color: v.$blanco;
+        border-radius: v.$radiusContenedor;
+        display: grid;
+        grid-template-rows: 50px 1fr;
+        height: calc(100vh - 160px);
+        margin: 2rem;
+        overflow-x: auto;
+        width: 100%;
+        // align-items: center;
+        // display: flex;
+        // justify-content: center;
+        // padding: 0 2rem;
     }
 
     .senara-page-name {
