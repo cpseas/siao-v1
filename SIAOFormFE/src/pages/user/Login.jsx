@@ -1,54 +1,59 @@
-import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { Field, Form, Formik } from "formik";
-import * as Yup from "yup";
+import { useState } from 'react'
+import { Link, Navigate } from 'react-router-dom'
+import { Field, Form, Formik } from 'formik'
+import * as Yup from 'yup'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faUser,
+  faKey,
+  faEnvelope,
+  faDisplay,
+} from '@fortawesome/free-solid-svg-icons'
 
-import { useAuth } from "../../hooks/useAuth";
-import { loginUser } from "../../services/userServices";
-import Logo from "../../components/Logo";
+import { useAuth } from '../../hooks/useAuth'
+import { loginUser } from '../../services/userServices'
+import Logo from '../../components/Logo'
 
 const Login = () => {
-  const { user, login } = useAuth();
+  const { user, login } = useAuth()
 
-  if (user) return <Navigate to="/dashboard" />;
+  if (user) return <Navigate to="/dashboard" />
 
   const inicioSeccionShema = Yup.object().shape({
-    emailOrUser: Yup.lazy((value = "") =>
-      value.includes("@")
+    emailOrUser: Yup.lazy((value = '') =>
+      value.includes('@')
         ? Yup.string()
-            .email("Email no valido")
-            .required("Este campo es obligatorio")
-            .typeError("Este campo es obligatorio")
-        : Yup.string().required("Este campo es obligatorio")
+            .email('Email no valido')
+            .required('Este campo es obligatorio')
+            .typeError('Este campo es obligatorio')
+        : Yup.string().required('Este campo es obligatorio')
     ),
-    password: Yup.string().required("Es requerida la contraseña"),
-  });
+    password: Yup.string().required('Es requerida la contraseña'),
+  })
 
-  const [validUsuario, setvalidUsuario] = useState();
+  const [validUsuario, setvalidUsuario] = useState()
 
   const handleSubmit = async (values) => {
     let object = {
       emailOrUser: values.emailOrUser,
       password: values.password,
-    };
+    }
     try {
-      let res = await loginUser(object);
-      console.log(res);
+      let res = await loginUser(object)
+      console.log(res)
 
       if (res.status === 200) {
-        setvalidUsuario(true);
+        setvalidUsuario(true)
 
         setTimeout(() => {
-          login(res.data.token, res.data.fullName);
-        }, 2000);
+          login(res.data.token, res.data.fullName)
+        }, 2000)
       }
     } catch (error) {
-      setvalidUsuario(false);
+      setvalidUsuario(false)
     }
-  };
+  }
 
   return (
     <>
@@ -63,11 +68,11 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            emailOrUser: "Chris0911",
-            password: "",
+            emailOrUser: 'Testen',
+            password: '',
           }}
           onSubmit={(values) => {
-            handleSubmit(values);
+            handleSubmit(values)
           }}
           validationSchema={inicioSeccionShema}
         >
@@ -76,7 +81,7 @@ const Login = () => {
               <>
                 <Form className="senara-form form-login">
                   {errors.emailOrUser && touched.emailOrUser ? (
-                    <a className="a-alert"> {errors.emailOrUser} </a>
+                    <a className="a-alert-email"> {errors.emailOrUser} </a>
                   ) : null}
                   <div className="senara-form-group">
                     <Field
@@ -90,8 +95,9 @@ const Login = () => {
                     <label>Correo o Usuario</label>
                     <FontAwesomeIcon icon={faEnvelope} />
                   </div>
+
                   {errors.password && touched.password ? (
-                    <a className="a-alert"> {errors.password} </a>
+                    <a className="a-alert-password"> {errors.password} </a>
                   ) : null}
 
                   <div className="senara-form-group">
@@ -120,7 +126,7 @@ const Login = () => {
                   <Link to="/forget-password"> ¿Olvidó su contraseña? </Link>
                 </div>
               </>
-            );
+            )
           }}
         </Formik>
       </div>
@@ -131,7 +137,7 @@ const Login = () => {
         <p className="alert-senara error">Usuario o contraseña incorrecta</p>
       ) : null}
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

@@ -1,5 +1,5 @@
-@use "base/variables" as v;
-@use "base/mixins" as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .senara-actions {
   margin-top: 2rem;
@@ -25,10 +25,23 @@
     }
   }
 }
-.a-alert {
+.a-alert-email {
+  position: absolute;
   text-align: end;
   color: rgb(169, 0, 0);
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: -2rem;
+  margin-bottom: -2rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  font-size: small;
+}
+.a-alert-password {
+  position: absolute;
+  text-align: end;
+  color: rgb(169, 0, 0);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  margin-left: 15rem;
+  margin-right: 15rem;
   font-size: small;
 }
