@@ -3,15 +3,22 @@
 
 
 .senara-content-menu {
-    background-color: darken(v.$azulClaro, 25%);
-    //background-color: v.$azulOscuro;
-    padding: 20px 0;
+    background-color: v.$blanco;
+    border-radius: v.$radiusContenedor;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    height: calc(100vh - 160px);
+    margin: 20px;
     overflow-x: auto;
 
     @include m.tablet {
         width: calc(100% - 80%);
     }
 
+    p {
+        color: v.$negro;
+    }
+    
     h2 {
         color: v.$blanco;
         margin: 0;
@@ -22,6 +29,42 @@
         display: none;
         -ms-overflow-style: none;
         scrollbar-width: none;
+    }
+
+    .title-container {
+        background-color: lighten(v.$gris, 35%);
+        display: grid;
+        place-content: center;
+    }
+
+    .forms-container {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        margin-block-start: 2rem;
+        place-content: center;
+
+        .form-item {
+            align-self: center;
+            display: grid;
+            background-color: lighten(v.$gris, 35%);
+            border-radius: v.$radiusContenedor;
+            height: 120px;
+            padding-inline: 1rem;
+            width: 200px;
+        }
+
+        p{
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .svg-block{
+            align-content: end;
+            display: grid;
+            justify-content: center;
+            padding-block-start: 2rem;
+        }
+
     }
 
     .senara-menu {

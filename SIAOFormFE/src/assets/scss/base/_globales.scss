@@ -1,5 +1,5 @@
-@use 'variables'as v;
-@use 'base/mixins'as m;
+@use "variables" as v;
+@use "base/mixins" as m;
 
 *,
 *:before,
@@ -60,31 +60,29 @@ img {
 
 .senara-btn-primary .btn-left {
   align-self: left;
-
 }
 
 .senara-btn-primary .btn-center {
   align-self: center;
-
 }
 
 .senara-form-group {
   position: relative;
   margin-bottom: 2.5rem;
 
-  >i,
-  >svg {
+  > i,
+  > svg {
     position: absolute;
     right: 10px;
     top: 7px;
     color: v.$verdeOscuro;
+    padding-right: 1rem; //
   }
 }
 
 .senara-form-group.senara-form-group-search {
   margin-left: auto;
 }
-
 
 /****  floating-Lable style start ****/
 .floating-label {
@@ -95,20 +93,23 @@ img {
 .floating-input,
 .floating-select {
   font-size: 1.5rem;
-  padding: 4px 4px;
+  padding: 4px 4px; //
   display: block;
   width: 100%;
-  height: 30px;
-  background-color: transparent;
-  //border: none;
+  height: 35px; //30
+  // background-color: transparent; // on
+  border: none; // off
   //border-bottom: 1px solid #757575;
-  border: 1px solid lighten(v.$grisOscuro, 30%);
+  // border: 1px solid lighten(v.$grisOscuro, 30%); // on
   //border-radius: 20px 20px 20px 20px;
   border-radius: 3px;
   box-sizing: border-box;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+
+  padding-left: 2rem;
+  background-color: v.$grisClaro;
 }
 
 .floating-input:focus,
@@ -131,9 +132,8 @@ label {
 }
 
 .floating-input {
-
-  &:focus~label,
-  &:not(:placeholder-shown)~label {
+  &:focus ~ label,
+  &:not(:placeholder-shown) ~ label {
     top: -18px;
     font-size: 14px;
     color: v.$azulOscuro;
@@ -141,9 +141,8 @@ label {
 }
 
 .floating-select {
-
-  &:focus~label,
-  &:not([value=""]):valid~label {
+  &:focus ~ label,
+  &:not([value=""]):valid ~ label {
     top: -18px;
     font-size: 14px;
     color: v.$azulOscuro;
@@ -152,16 +151,14 @@ label {
 
 /* active state */
 
-.floating-input:focus~.bar {
-
+.floating-input:focus ~ .bar {
   &:before,
   &:after {
     width: 50%;
   }
 }
 
-.floating-select:focus~.bar {
-
+.floating-select:focus ~ .bar {
   &:before,
   &:after {
     width: 50%;
@@ -186,6 +183,11 @@ label {
   max-height: 260px;
   overflow: hidden;
   overflow-x: hidden;
+
+  border: none;
+  background-color: v.$grisClaro;
+  min-width: 100%;
+  resize: none;
 }
 
 /* highlighter */
@@ -202,8 +204,8 @@ label {
 
 /* active state */
 
-.floating-input:focus~.highlight,
-.floating-select:focus~.highlight {
+.floating-input:focus ~ .highlight,
+.floating-select:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;

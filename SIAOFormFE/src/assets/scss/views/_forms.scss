@@ -1,0 +1,29 @@
+@use 'base/variables'as v;
+@use 'base/mixins'as m;
+
+.title-container {
+    background-color: lighten(v.$gris, 35%);
+    display: grid;
+    place-content: center;
+}
+
+.senara-forms {
+    display: grid;
+
+    .forms-container{
+        display: grid;
+        grid-template-rows: 1fr 50px;
+        padding: 4rem;
+
+        .forms-content{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        button {
+            justify-self: center;
+            min-width: 20rem;
+        }
+    }
+}
