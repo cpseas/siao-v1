@@ -32,7 +32,7 @@
     }
 
     .title-container {
-        background-color: lighten(v.$gris, 25%);
+        background-color: lighten(v.$gris, 35%);
         display: grid;
         place-content: center;
     }
@@ -46,7 +46,7 @@
         .form-item {
             align-self: center;
             display: grid;
-            background-color: lighten(v.$gris, 25%);
+            background-color: lighten(v.$gris, 35%);
             border-radius: v.$radiusContenedor;
             height: 120px;
             padding-inline: 1rem;

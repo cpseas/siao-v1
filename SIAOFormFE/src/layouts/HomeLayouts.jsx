@@ -27,28 +27,28 @@ const HomeLayouts = () => {
 
     return (
         <div className="senara-dashboard">
-            <div className="senara-content-principal">
-                <div className="senara-header">
-                    <div className="senara-logo">
-                        <div className="senara-img-logo"></div>
-                    </div>
-                    <div>
-                        <div className="senara-description-page">
-                            DIRECCION DISTRITO DE RIEGO ARENAL TEMPISQUE
-                        </div>
-                    </div>
-                    <div>
-                        <Link to="/dashboard/profile">
-                            {user}
-                            <FontAwesomeIcon icon={faUser} size="2x" color="#07392a" />
-                        </Link>
-                        <a onClick={logout} style={{ cursor: 'pointer' }}>
-                            Salir
-                            <FontAwesomeIcon icon={faDoorOpen} size="2x" color="rgb(169,0,0)"
-                            />
-                        </a>
+            <div className="senara-header">
+                <div className="senara-logo">
+                    <div className="senara-img-logo"></div>
+                </div>
+                <div>
+                    <div className="senara-description-page">
+                        DIRECCION DISTRITO DE RIEGO ARENAL TEMPISQUE
                     </div>
                 </div>
+                <div>
+                    <Link to="/dashboard/profile">
+                        {user}
+                        <FontAwesomeIcon icon={faUser} size="2x" color="#07392a" />
+                    </Link>
+                    <a onClick={logout} style={{ cursor: 'pointer' }}>
+                        Salir
+                        <FontAwesomeIcon icon={faDoorOpen} size="2x" color="rgb(169,0,0)"
+                        />
+                    </a>
+                </div>
+            </div>
+            <div className="senara-content-principal">
                 <div className="senara-content-menu">
                     <div className='title-container'>
                         <p> Formularios </p>
