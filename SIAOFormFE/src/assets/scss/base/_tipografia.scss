@@ -38,21 +38,3 @@ p {
   margin: 0;
   color: v.$verdeOscuro !important;
 }
-
-.senara-descrip-page {
-  padding: 1rem;
-  color: v.$verdeOscuro !important;
-  display: block;
-  @include m.telefono {
-    display: none;
-    color: green;
-  }
-  @include m.tablet {
-    color: red;
-  }
-
-  @include m.desktop {
-    // display: block;
-    color: green;
-  }
-}

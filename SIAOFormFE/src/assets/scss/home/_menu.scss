@@ -7,9 +7,10 @@
     border-radius: v.$radiusContenedor;
     display: grid;
     grid-template-rows: 50px 1fr;
-    height: calc(100vh - 160px);
-    margin: 20px;
+    height: calc(100vh - 180px);
+    margin: 4rem 0 4rem 2rem;
     overflow-x: auto;
+    box-shadow: v.$boxShadow;
 
     @include m.tablet {
         width: calc(100% - 80%);
@@ -40,7 +41,7 @@
     .forms-container {
         display: grid;
         grid-template-rows: repeat(3, 1fr);
-        margin-block-start: 2rem;
+        margin-block-start: 1rem;
         place-content: center;
 
         .form-item {

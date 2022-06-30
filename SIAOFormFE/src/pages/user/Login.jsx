@@ -63,8 +63,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            emailOrUser: "marars@gmail.com",
-            password: "123qweasd",
+            emailOrUser: "correo@correo.com",
+            password: "",
           }}
           onSubmit={(values) => {
             handleSubmit(values);

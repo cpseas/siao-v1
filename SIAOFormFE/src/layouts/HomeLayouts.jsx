@@ -31,11 +31,9 @@ const HomeLayouts = () => {
                 <div className="senara-logo-header">
                     <div className="senara-img-logo-header"></div>
                 </div>
-                <div>
-                    <div className="senara-descrip-page">
-                        DIRECCION DISTRITO DE RIEGO ARENAL TEMPISQUE
-                    </div>
-                </div>
+                <h4 className="senara-descrip-page">
+                    DIRECCION DISTRITO DE RIEGO ARENAL TEMPISQUE
+                </h4>
                 <div className='senara-icon-header'>
                     <Link to="/dashboard/profile">
                         {user}

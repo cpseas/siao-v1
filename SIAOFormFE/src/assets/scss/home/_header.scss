@@ -3,10 +3,10 @@
 
 .senara-header {
   background-color: v.$blanco;
-  padding: 3rem 2rem;
-  box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, 0.4);
+  padding: 6rem 2rem;
+  box-shadow: v.$boxShadow;
   border-radius: 10px;
-  margin: 10px;
+  margin: 20px;
 
   @include m.tablet {
     display: flex;
@@ -69,4 +69,24 @@
       cursor: pointer;
     }
   }
+
+  .senara-descrip-page {
+    padding: 1rem;
+    color: v.$verdeOscuro !important;
+    // display: block;
+    // @include m.telefono {
+    //   display: none;
+    //   color: green;
+    // }
+    // @include m.tablet {
+    //   color: red;
+    // }
+  
+    // @include m.desktop {
+    //   display: block;
+    //   color: green;
+    // }
+  }
+  
+
 }

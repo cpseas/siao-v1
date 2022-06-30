@@ -22,10 +22,11 @@
         border-radius: v.$radiusContenedor;
         display: grid;
         grid-template-rows: 50px 1fr;
-        height: calc(100vh - 160px);
-        margin: 2rem;
+        height: calc(100vh - 180px);
+        margin: 4rem 2rem;
         overflow-x: auto;
         width: 100%;
+        box-shadow: v.$boxShadow
         // align-items: center;
         // display: flex;
         // justify-content: center;
