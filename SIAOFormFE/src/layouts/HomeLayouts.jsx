@@ -68,7 +68,7 @@ const HomeLayouts = () => {
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
-                            <p> Inscripción en Plan de Riego DRAT </p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
