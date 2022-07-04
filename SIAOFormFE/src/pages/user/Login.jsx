@@ -93,10 +93,8 @@ const Login = () => {
 
                   <div className="senara-form-group">
                     {errors.password && touched.password ? (
-                      <a className="a-alert"> {errors.password} </a>
-                    ) : (
-                      <a></a>
-                    )}
+                      <div className="a-alert"> {errors.password} </div>
+                    ) : null}
 
                     <Field
                       id="password"
