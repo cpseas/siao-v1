@@ -76,7 +76,7 @@ const Login = () => {
               <>
                 <Form className="senara-form form-login">
                   {errors.emailOrUser && touched.emailOrUser ? (
-                    <a className="a-alert"> {errors.emailOrUser} </a>
+                    <a className="a-alert-email"> {errors.emailOrUser} </a>
                   ) : null}
                   <div className="senara-form-group">
                     <Field
@@ -90,8 +90,9 @@ const Login = () => {
                     <label>Correo o Usuario</label>
                     <FontAwesomeIcon icon={faEnvelope} />
                   </div>
+
                   {errors.password && touched.password ? (
-                    <a className="a-alert"> {errors.password} </a>
+                    <a className="a-alert-password"> {errors.password} </a>
                   ) : null}
 
                   <div className="senara-form-group">
