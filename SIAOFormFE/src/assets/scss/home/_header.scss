@@ -4,12 +4,12 @@
 .senara-header {
   background-color: v.$blanco;
   // padding: 3rem 2rem;
-  box-shadow: 1px 12px 9px -13px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
   margin: 10px;
-  z-index: 9000;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding: 6rem 2rem;
+  box-shadow: v.$boxShadow;
+  border-radius: 10px;
 
   @include m.desktop {
     justify-content: space-between;
