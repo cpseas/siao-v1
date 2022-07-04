@@ -1,5 +1,5 @@
-@use "variables" as v;
-@use "base/mixins" as m;
+@use 'variables' as v;
+@use 'base/mixins' as m;
 
 *,
 *:before,
@@ -142,7 +142,7 @@ label {
 
 .floating-select {
   &:focus ~ label,
-  &:not([value=""]):valid ~ label {
+  &:not([value='']):valid ~ label {
     top: -18px;
     font-size: 14px;
     color: v.$azulOscuro;
