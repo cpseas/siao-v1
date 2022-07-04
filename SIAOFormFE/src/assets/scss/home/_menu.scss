@@ -1,34 +1,31 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 
 .senara-content-menu {
     background-color: v.$blanco;
     border-radius: v.$radiusContenedor;
-    display: grid;;
+    box-shadow: v.$boxShadow;
+    display: grid;
+    grid-template-rows: 40px 1fr;
     margin: 4rem 2rem 0rem 2rem;
     min-height: inherit;
     overflow-x: auto;
-    box-shadow: v.$boxShadow;
-    grid-template-rows: 40px 1fr;
-    
-    @include m.tablet{
+
+    @include m.tablet {
         height: calc(100vh - 180px);
-        margin: 4rem 0 4rem 2rem;
+        margin: 2rem 0 4rem 2rem;
+        // width: calc(100% - 80%);
     }
-    
-    // @include m.tablet {
-    //     width: calc(100% - 80%);
-    // }
-    
-    @include m.desktop{
+
+    @include m.desktop {
         width: calc(100% - 2rem);
     }
 
     p {
         color: v.$negro;
     }
-    
+
     h2 {
         color: v.$blanco;
         margin: 0;
@@ -50,17 +47,15 @@
     .forms-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        // margin-block-start: 1rem;
-        // place-content: center;
-        
-        @include m.tablet{
+
+        @include m.tablet {
             grid-template-columns: none;
             grid-template-rows: repeat(3, 1fr);
         }
 
         .form-item {
+            color: v.$negro;
             align-self: center;
-            // margin-block: 1rem;
             display: grid;
             background-color: lighten(v.$gris, 35%);
             border-radius: v.$radiusContenedor;
@@ -69,28 +64,32 @@
             width: 80%;
             margin-inline: auto;
 
-            &:last-child{
-                > p{
-                    &::after{
+            &:last-child {
+                >p {
+                    &::after {
                         margin-block: auto;
                         text-align: center;
                         content: "Plan de Riego";
-                        
-                        @include m.desktop{
+
+                        @include m.desktop {
                             content: "Inscripción en Plan de Riego DRAT";
                         }
                     }
                 }
             }
 
+            &:hover {
+                background-color: lighten(v.$gris, 30%);
+            }
+
         }
 
-        p{
+        p {
             font-size: 1.5rem;
             text-align: center;
         }
 
-        .svg-block{
+        .svg-block {
             align-content: end;
             display: grid;
             justify-content: center;

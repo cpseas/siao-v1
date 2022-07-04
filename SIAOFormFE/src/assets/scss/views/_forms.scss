@@ -1,5 +1,5 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .title-container {
     background-color: lighten(v.$gris, 35%);
@@ -9,21 +9,22 @@
 
 .senara-forms {
     display: grid;
+    overflow-x: auto;
 
-    .forms-container{
+    .forms-container {
         display: grid;
         grid-template-rows: 1fr 50px;
         padding: 4rem;
 
-        @include m.desktop{
+        @include m.desktop {
             padding: 8rem;
         }
 
-        .forms-content{
+        .forms-content {
             display: grid;
             grid-template-rows: repeat(2, minmax(522px 1fr));
 
-            @include m.desktop{
+            @include m.desktop {
                 gap: 4rem;
                 grid-template-rows: none;
                 grid-template-columns: repeat(2, 1fr);
