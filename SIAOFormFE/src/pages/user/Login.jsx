@@ -4,12 +4,7 @@ import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faUser,
-  faKey,
-  faEnvelope,
-  faDisplay,
-} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../../hooks/useAuth'
 import { loginUser } from '../../services/userServices'
@@ -68,8 +63,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            emailOrUser: 'Testen',
-            password: '',
+            emailOrUser: "correo@correo.com",
+            password: "",
           }}
           onSubmit={(values) => {
             handleSubmit(values)

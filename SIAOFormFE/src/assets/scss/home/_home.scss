@@ -14,7 +14,16 @@
     }
 
     .senara-content-principal {
-        display: flex;
+        display: grid;
+        grid-template-rows: 260px 1fr;
+
+        @include m.tablet{
+            grid-template-columns: 260px 1fr;
+        }
+
+        @include m.desktop{
+            grid-template-columns: 260px 1fr;
+        }
     }
     
     .senara-content {
@@ -22,10 +31,20 @@
         border-radius: v.$radiusContenedor;
         display: grid;
         grid-template-rows: 50px 1fr;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 180px);
         margin: 2rem;
         overflow-x: auto;
-        width: 100%;
+        box-shadow: v.$boxShadow;
+
+        @include m.tablet{
+            margin: 4rem 2rem;
+        }
+        
+        @include m.desktop{
+            margin: 4rem 2rem;
+        }
+        
+        // width: 100%;
         // align-items: center;
         // display: flex;
         // justify-content: center;

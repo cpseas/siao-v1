@@ -15,10 +15,19 @@
         grid-template-rows: 1fr 50px;
         padding: 4rem;
 
+        @include m.desktop{
+            padding: 8rem;
+        }
+
         .forms-content{
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
+            grid-template-rows: repeat(2, minmax(522px 1fr));
+
+            @include m.desktop{
+                gap: 4rem;
+                grid-template-rows: none;
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         button {

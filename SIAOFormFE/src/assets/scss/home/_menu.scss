@@ -5,14 +5,24 @@
 .senara-content-menu {
     background-color: v.$blanco;
     border-radius: v.$radiusContenedor;
-    display: grid;
-    grid-template-rows: 50px 1fr;
-    height: calc(100vh - 160px);
-    margin: 20px;
+    display: grid;;
+    margin: 4rem 2rem 0rem 2rem;
+    min-height: inherit;
     overflow-x: auto;
-
-    @include m.tablet {
-        width: calc(100% - 80%);
+    box-shadow: v.$boxShadow;
+    grid-template-rows: 40px 1fr;
+    
+    @include m.tablet{
+        height: calc(100vh - 180px);
+        margin: 4rem 0 4rem 2rem;
+    }
+    
+    // @include m.tablet {
+    //     width: calc(100% - 80%);
+    // }
+    
+    @include m.desktop{
+        width: calc(100% - 2rem);
     }
 
     p {
@@ -39,18 +49,40 @@
 
     .forms-container {
         display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        margin-block-start: 2rem;
-        place-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        // margin-block-start: 1rem;
+        // place-content: center;
+        
+        @include m.tablet{
+            grid-template-columns: none;
+            grid-template-rows: repeat(3, 1fr);
+        }
 
         .form-item {
             align-self: center;
+            // margin-block: 1rem;
             display: grid;
             background-color: lighten(v.$gris, 35%);
             border-radius: v.$radiusContenedor;
             height: 120px;
             padding-inline: 1rem;
-            width: 200px;
+            width: 80%;
+            margin-inline: auto;
+
+            &:last-child{
+                > p{
+                    &::after{
+                        margin-block: auto;
+                        text-align: center;
+                        content: "Plan de Riego";
+                        
+                        @include m.desktop{
+                            content: "Inscripción en Plan de Riego DRAT";
+                        }
+                    }
+                }
+            }
+
         }
 
         p{
