@@ -1,19 +1,66 @@
-@use "base/variables" as v;
-@use "base/mixins" as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .senara-header {
   background-color: v.$blanco;
+  // padding: 3rem 2rem;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   padding: 6rem 2rem;
   box-shadow: v.$boxShadow;
   border-radius: 10px;
-  margin: 20px;
 
-  @include m.tablet {
-    display: flex;
+  @include m.desktop {
     justify-content: space-between;
     align-items: center;
+    display: flex;
   }
 
+  .senara-logo-header {
+    margin: 0;
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+
+    .senara-img-logo-header {
+      width: 100%;
+      background-image: url('../img/logo_letra.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      border: 1px red solid;
+    }
+  }
+
+  .senara-icon-header {
+    display: grid;
+    gap: 25px;
+    text-align: center;
+    background-position: right right;
+    align-items: center;
+    padding-right: 2rem;
+    justify-items: end;
+    border: 1px red solid;
+    svg {
+      padding-left: 1.5rem;
+    }
+    .logout-header {
+      color: red;
+      cursor: pointer;
+    }
+  }
+
+  .senara-descrip-page {
+    padding: 1rem;
+    color: v.$verdeOscuro !important;
+    display: none;
+
+    @include m.desktop {
+      display: block;
+      color: green;
+    }
+  }
   p {
     margin: 0;
     font-size: 1.4rem;
@@ -39,54 +86,4 @@
       padding-right: 0.5rem;
     }
   }
-
-  .senara-logo-header {
-    margin: 0;
-    width: 20rem;
-    height: 10rem;
-    display: flex;
-
-    .senara-img-logo-header {
-      width: 100%;
-      background-image: url("../img/logo_letra.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-  }
-
-  .senara-icon-header {
-    display: grid;
-    gap: 25px;
-    background-position: center center;
-    align-items: center;
-    margin-right: 2rem;
-    svg {
-      padding-left: 1.5rem;
-    }
-    .logout-header {
-      color: red;
-      cursor: pointer;
-    }
-  }
-
-  .senara-descrip-page {
-    padding: 1rem;
-    color: v.$verdeOscuro !important;
-    // display: block;
-    // @include m.telefono {
-    //   display: none;
-    //   color: green;
-    // }
-    // @include m.tablet {
-    //   color: red;
-    // }
-  
-    // @include m.desktop {
-    //   display: block;
-    //   color: green;
-    // }
-  }
-  
-
 }

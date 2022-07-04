@@ -6,25 +6,28 @@ import { useAuth } from '../hooks/useAuth'
 import { getIdentification } from '../helpers/decoding'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faDoorOpen, faCalendar } from '@fortawesome/free-solid-svg-icons'
+import {
+  faUser,
+  faDoorOpen,
+  faCalendar,
+} from '@fortawesome/free-solid-svg-icons'
 
 const HomeLayouts = () => {
-    const { user, token, logout } = useAuth()
+  const { user, token, logout } = useAuth()
 
-    const [data, setData] = useState(null)
+  const [data, setData] = useState(null)
 
-    useEffect(() => {
-        const getData = async () => {
-            const identification = getIdentification(token)
-            const res = await getUser(identification, token)
-            const aux = res.data[0]
-            setData(aux)
-        }
-        getData()
-    }, [])
+  useEffect(() => {
+    const getData = async () => {
+      const identification = getIdentification(token)
+      const res = await getUser(identification, token)
+      const aux = res.data[0]
+      setData(aux)
+    }
+    getData()
+  }, [])
 
-    if (!user) return <Navigate to="/" />
-
+  if (!user) return <Navigate to="/" />
     return (
         <div className="senara-dashboard">
             <div className="senara-header">
@@ -76,8 +79,8 @@ const HomeLayouts = () => {
                     <Outlet context={[data, setData]} />
                 </div>
             </div>
-        </div>
-    )
+    </div>
+  )
 }
 
 export default HomeLayouts
