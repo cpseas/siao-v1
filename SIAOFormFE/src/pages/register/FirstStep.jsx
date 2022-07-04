@@ -9,7 +9,7 @@ const FirstStep = ({ errors, touched }) => {
         <>
             <div className="senara-form-group">
                 {errors.identificationType && touched.identificationType ? (
-                    <div className="senara-actions">{errors.identificationType}</div>
+                    <div className="a-alert">{errors.identificationType}</div>
                 ) : null}
                 <Field
                     id="identificationType"
@@ -27,7 +27,7 @@ const FirstStep = ({ errors, touched }) => {
 
             <div className="senara-form-group">
                 {errors.identification && touched.identification ? (
-                    <div className="senara-actions">{errors.identification}</div>
+                    <div className="a-alert">{errors.identification}</div>
                 ) : null}
                 <Field
                     id="identification"
@@ -43,7 +43,7 @@ const FirstStep = ({ errors, touched }) => {
 
             <div className="senara-form-group">
                 {errors.fullName && touched.fullName ? (
-                    <div className="senara-actions">{errors.fullName}</div>
+                    <div className="a-alert">{errors.fullName}</div>
                 ) : null}
                 <Field
                     id="fullName"
@@ -59,7 +59,7 @@ const FirstStep = ({ errors, touched }) => {
 
             <div className="senara-form-group">
                 {errors.genre && touched.genre ? (
-                    <div className="senara-actions">{errors.genre}</div>
+                    <div className="a-alert">{errors.genre}</div>
                 ) : null}
                 <Field
                     id="genre"

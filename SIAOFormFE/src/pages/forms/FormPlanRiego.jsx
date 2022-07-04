@@ -68,6 +68,7 @@ const FormPlanRiego = () => {
                                                         type="text"
                                                         value={data.fullName}
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Nombre Completo </label>
@@ -79,6 +80,7 @@ const FormPlanRiego = () => {
                                                         name="identification"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Identificación </label>
@@ -93,6 +95,7 @@ const FormPlanRiego = () => {
                                                         name="nombreJuridico"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Persona Jurifica </label>
@@ -104,6 +107,7 @@ const FormPlanRiego = () => {
                                                         name="cedulaJuridica"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Cedula Juridica </label>
@@ -118,6 +122,7 @@ const FormPlanRiego = () => {
                                                         name="standardNumber"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> # Padrón </label>
@@ -130,6 +135,7 @@ const FormPlanRiego = () => {
                                                         name="hydraulicSector"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Sector Hidraulico </label>
@@ -141,6 +147,7 @@ const FormPlanRiego = () => {
                                                         name="subDistrict"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Subdistrito </label>
@@ -155,6 +162,7 @@ const FormPlanRiego = () => {
                                                     name="irrigableSurface"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Superficie Regable </label>
@@ -208,6 +216,7 @@ const FormPlanRiego = () => {
                                                     name="cycle"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Superficie Regable </label>
@@ -220,6 +229,7 @@ const FormPlanRiego = () => {
                                                     name="signatureOrID"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Firma o Identificación </label>
@@ -232,6 +242,7 @@ const FormPlanRiego = () => {
                                                     name="phone"
                                                     type="tel"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Teléfono </label>
@@ -244,6 +255,7 @@ const FormPlanRiego = () => {
                                                     name="direction"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Dirección </label>
@@ -256,6 +268,7 @@ const FormPlanRiego = () => {
                                                     name="email"
                                                     type="email"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Correo Electronico </label>

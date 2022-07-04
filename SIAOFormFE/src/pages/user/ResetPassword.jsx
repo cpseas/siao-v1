@@ -1,10 +1,14 @@
 import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { resetPassword } from '../../services/userServices'
 
 const ResetPassword = () => {
+
+    const navi = useParams()
+
     const ResetPasswordSchema = Yup.object().shape({
         password: Yup.string()
             .required("Este campo es obligatorio")
@@ -15,7 +19,7 @@ const ResetPassword = () => {
     })
 
     const handleSubmit = async values => {
-        await resetPassword(values)
+        await resetPassword(values, navi.token)
     }
 
     return (

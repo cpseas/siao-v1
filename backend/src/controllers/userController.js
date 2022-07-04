@@ -121,8 +121,8 @@ export const validateEmail = async (req, res) => {
       host: "smtp.ethereal.email",
       port: 587,
       auth: {
-        user: "alford.morar24@ethereal.email",
-        pass: "xq8Yhqc1x9yNnZsBJX",
+        user: "eldon.douglas78@ethereal.email",
+        pass: "3pkXzdnG9w9XV4MmN5",
       },
     });
 
@@ -133,7 +133,7 @@ export const validateEmail = async (req, res) => {
       text: "Tu contraseña se cambiará!",
       html: `
 					<b> Esto es HTML </b>
-					<a href="localhost:3000/reset-password/${token}"> Restablecer Contraseña </a> 
+					<a href="${config.FRONTEND.URL}/reset-password/${token}"> Restablecer Contraseña </a> 
 				`,
     });
 
@@ -152,8 +152,7 @@ export const validateEmail = async (req, res) => {
 };
 
 export const changePassword = async (req, res) => {
-  const { newPassword } = req.body;
-
+  const { password } = req.body;
   try {
     if (!newPassword) {
       return res.status(401).json({ msg: "Por favor ingrese una contraseña!" });
@@ -161,7 +160,7 @@ export const changePassword = async (req, res) => {
     const identification = getUserIdentification(req.params.token);
     const user = await User.findOneAndUpdate(
       { identification: identification },
-      { password: newPassword },
+      { password: password },
       { new: true }
     );
     if (user) {
