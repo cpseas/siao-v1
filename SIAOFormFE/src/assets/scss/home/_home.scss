@@ -1,9 +1,9 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .senara-dashboard {
     display: grid;
-    grid-template-rows: 120px 1fr;
+    grid-template-rows: 140px 1fr;
     //background-color: v.$grisClaro;
     background-color: v.$bgGris;
     overflow: hidden;
@@ -17,33 +17,32 @@
         display: grid;
         grid-template-rows: 260px 1fr;
 
-        @include m.tablet{
+        @include m.tablet {
             grid-template-columns: 260px 1fr;
         }
 
-        @include m.desktop{
+        @include m.desktop {
             grid-template-columns: 260px 1fr;
         }
     }
-    
+
     .senara-content {
         background-color: v.$blanco;
         border-radius: v.$radiusContenedor;
         display: grid;
-        grid-template-rows: 50px 1fr;
+        grid-template-rows: 40px 1fr;
         height: calc(100vh - 180px);
         margin: 2rem;
-        overflow-x: auto;
         box-shadow: v.$boxShadow;
 
-        @include m.tablet{
-            margin: 4rem 2rem;
+        @include m.tablet {
+            margin: 2rem 2rem;
         }
-        
-        @include m.desktop{
-            margin: 4rem 2rem;
-        }
-        
+
+        // @include m.desktop {
+        //     margin: 4rem 2rem;
+        // }
+
         // width: 100%;
         // align-items: center;
         // display: flex;

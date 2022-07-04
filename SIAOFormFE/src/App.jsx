@@ -11,6 +11,7 @@ import FormDeQuejas from './pages/forms/FormDeQuejas'
 
 import HomeLayouts from './layouts/HomeLayouts'
 import Profile from './pages/forms/Profile'
+import FormPlanRiego from './pages/forms/FormPlanRiego'
 
 // Primer Route = Area Publica
 function App() {

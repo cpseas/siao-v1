@@ -1,27 +1,11 @@
-import { useEffect, useState } from 'react'
 import { Navigate, Outlet, Link } from 'react-router-dom'
-
-import { getUser } from '../services/userServices'
-import { useAuth } from '../hooks/useAuth'
-import { getIdentification } from '../helpers/decoding'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faDoorOpen, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
+import { useAuth } from '../hooks/useAuth'
+
 const HomeLayouts = () => {
-    const { user, token, logout } = useAuth()
-
-    const [data, setData] = useState(null)
-
-    useEffect(() => {
-        const getData = async () => {
-            const identification = getIdentification(token)
-            const res = await getUser(identification, token)
-            const aux = res.data[0]
-            setData(aux)
-        }
-        getData()
-    }, [])
+    const { user, logout } = useAuth()
 
     if (!user) return <Navigate to="/" />
 
@@ -52,28 +36,28 @@ const HomeLayouts = () => {
                         <p> Formularios </p>
                     </div>
                     <div className='forms-container'>
-                        <div className="form-item">
+                        <Link to={'/dashboard/plan-riego'} className="form-item">
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
                             <p> Formulario de Quejas </p>
-                        </div>
-                        <div className="form-item">
+                        </Link>
+                        <Link to={'/dashboard/plan-riego'} className="form-item">
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
                             <p> Solicitud de Riego </p>
-                        </div>
-                        <div className="form-item">
+                        </Link>
+                        <Link to={'/dashboard/plan-riego'} className="form-item">
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
                             <p></p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="senara-content">
-                    <Outlet context={[data, setData]} />
+                    <Outlet />
                 </div>
             </div>
         </div>
