@@ -77,7 +77,7 @@ const Login = () => {
                 <Form className="senara-form form-login">
                   <div className="senara-form-group">
                     {errors.emailOrUser && touched.emailOrUser ? (
-                      <a className="a-alert"> {errors.emailOrUser} </a>
+                      <div className="a-alert"> {errors.emailOrUser} </div>
                     ) : null}
                     <Field
                       id="emailOrUser"
