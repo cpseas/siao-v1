@@ -17,6 +17,7 @@ const FormPlanRiego = () => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(false)
     const [currentDate, setCurrentDate] = useState(new Date())
+    const [counter, setCounter] = useState([0])
 
     const planRiegoSchema = Yup.object().shape({
         date: Yup.date().required('La fecha es obligatoria!').min(currentDate.toLocaleDateString(), `Debe ser posterior al ${currentDate.toLocaleDateString()}`)
@@ -31,6 +32,8 @@ const FormPlanRiego = () => {
         }, 500);
         loadData()
     }, [])
+
+    const newCrop = () => setCounter(...counter, 0)
 
     const handleSubmit = (values) => {
         console.log(values)
@@ -56,87 +59,95 @@ const FormPlanRiego = () => {
                                 {loading
                                     ?
                                     <>
-                                        <div className="forms-content">
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="fullName"
-                                                    name="fullName"
-                                                    type="text"
-                                                    value={data.fullName}
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Nombre Completo </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
-                                            </div>
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="identification"
-                                                    name="identification"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Identificación </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
-                                            </div>
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="nombreJuridico"
-                                                    name="nombreJuridico"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Persona Jurifica </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
-                                            </div>
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="cedulaJuridica"
-                                                    name="cedulaJuridica"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Cedula Juridica </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
+                                        <div className="forms-content-group">
+                                            <div className="forms-content-group-item">
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="fullName"
+                                                        name="fullName"
+                                                        type="text"
+                                                        value={data.fullName}
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Nombre Completo </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="identification"
+                                                        name="identification"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Identificación </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
                                             </div>
 
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="standardNumber"
-                                                    name="standardNumber"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> # Padrón </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
+                                            <div className="forms-content-group-item">
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="nombreJuridico"
+                                                        name="nombreJuridico"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Persona Jurifica </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="cedulaJuridica"
+                                                        name="cedulaJuridica"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Cedula Juridica </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
                                             </div>
 
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="hydraulicSector"
-                                                    name="hydraulicSector"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Sector Hidraulico </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
+                                            <div className="forms-content-group-item">
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="standardNumber"
+                                                        name="standardNumber"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> # Padrón </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
+
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="hydraulicSector"
+                                                        name="hydraulicSector"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Sector Hidraulico </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
+                                                <div className="senara-form-group">
+                                                    <Field
+                                                        id="subDistrict"
+                                                        name="subDistrict"
+                                                        type="text"
+                                                        className="floating-input"
+                                                    />
+                                                    <span className="highlight"></span>
+                                                    <label> Subdistrito </label>
+                                                    <FontAwesomeIcon icon={faAddressCard} />
+                                                </div>
                                             </div>
-                                            <div className="senara-form-group">
-                                                <Field
-                                                    id="subDistrict"
-                                                    name="subDistrict"
-                                                    type="text"
-                                                    className="floating-input"
-                                                />
-                                                <span className="highlight"></span>
-                                                <label> Subdistrito </label>
-                                                <FontAwesomeIcon icon={faAddressCard} />
-                                            </div>
+
 
                                             <div className="senara-form-group">
                                                 <Field
@@ -152,7 +163,7 @@ const FormPlanRiego = () => {
 
                                             {/* CROPS HERE */}
 
-                                            <table id='senara-table'>
+                                            {/* <table id='senara-table'>
                                                 <thead>
                                                     <tr>
                                                         <th> Cultivo </th>
@@ -169,7 +180,10 @@ const FormPlanRiego = () => {
                                                         <td><input type="text" /></td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                                <tfoot>
+                                                    <button onClick={newCrop}> Agregar </button>
+                                                </tfoot>
+                                            </table> */}
 
                                             {/* CROPS END HERE */}
 

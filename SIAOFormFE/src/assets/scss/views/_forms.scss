@@ -31,6 +31,21 @@
             }
         }
 
+        .forms-content-group {
+            display: grid;
+
+            .forms-content-group-item {
+                display: grid;
+                padding-block-end: 2rem;
+
+                @include m.desktop {
+                    // grid-template-columns: repeat(2, 1fr);
+                    grid-template-columns: repeat(auto-fit, minmax(calc(33% - 2rem), 1fr));
+                    gap: 2rem;
+                }
+            }
+        }
+
         button {
             justify-self: center;
             min-width: 20rem;
