@@ -233,7 +233,7 @@ const FormSolicitudRiego = () => {
                   </div>
                 </div>
                 <button type="submit" className="senara-btn-primary">
-                  Guardar
+                  Hacer Solicitud
                 </button>
               </Form>
             )
