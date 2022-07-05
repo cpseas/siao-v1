@@ -25,23 +25,12 @@
     }
   }
 }
-.a-alert-email {
+
+.a-alert {
   position: absolute;
   text-align: end;
   color: rgb(169, 0, 0);
-  margin-top: -2rem;
-  margin-bottom: -2rem;
-  margin-left: 30rem;
-  margin-right: 30rem;
-  font-size: small;
-}
-.a-alert-password {
-  position: absolute;
-  text-align: end;
-  color: rgb(169, 0, 0);
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  margin-left: 30rem;
-  margin-right: 30rem;
+  top: -1.8rem;
+  right: 0;
   font-size: small;
 }

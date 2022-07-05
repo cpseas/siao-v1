@@ -10,6 +10,7 @@ import ResetPassword from './pages/user/ResetPassword'
 
 import HomeLayouts from './layouts/HomeLayouts'
 import Profile from './pages/forms/Profile'
+import FormSolicitudRiego from './pages/forms/FormSolicitudRiego'
 import FormPlanRiego from './pages/forms/FormPlanRiego'
 
 // Primer Route = Area Publica
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/dashboard" element={<HomeLayouts />}>
 						<Route path="profile" element={<Profile />} />
 						<Route path="plan-riego" element={<FormPlanRiego />} />
+            <Route path="form-solicitud-riego" element={<FormSolicitudRiego />} />
 					</Route>
 				</Routes>
 			</AuthProvider>

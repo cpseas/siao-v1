@@ -63,8 +63,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            emailOrUser: "correo@correo.com",
-            password: "",
+            emailOrUser: 'correo@correo.com',
+            password: '',
           }}
           onSubmit={(values) => {
             handleSubmit(values)
@@ -75,10 +75,10 @@ const Login = () => {
             return (
               <>
                 <Form className="senara-form form-login">
-                  {errors.emailOrUser && touched.emailOrUser ? (
-                    <a className="a-alert-email"> {errors.emailOrUser} </a>
-                  ) : null}
                   <div className="senara-form-group">
+                    {errors.emailOrUser && touched.emailOrUser ? (
+                      <div className="a-alert"> {errors.emailOrUser} </div>
+                    ) : null}
                     <Field
                       id="emailOrUser"
                       type="text"
@@ -91,11 +91,11 @@ const Login = () => {
                     <FontAwesomeIcon icon={faEnvelope} />
                   </div>
 
-                  {errors.password && touched.password ? (
-                    <a className="a-alert-password"> {errors.password} </a>
-                  ) : null}
-
                   <div className="senara-form-group">
+                    {errors.password && touched.password ? (
+                      <div className="a-alert"> {errors.password} </div>
+                    ) : null}
+
                     <Field
                       id="password"
                       type="password"
