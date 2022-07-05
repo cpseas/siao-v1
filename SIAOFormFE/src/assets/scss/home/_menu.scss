@@ -1,34 +1,29 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 
 .senara-content-menu {
     background-color: v.$blanco;
     border-radius: v.$radiusContenedor;
-    display: grid;;
-    margin: 4rem 2rem 0rem 2rem;
-    min-height: inherit;
-    overflow-x: auto;
     box-shadow: v.$boxShadow;
+    display: grid;
     grid-template-rows: 40px 1fr;
-    
-    @include m.tablet{
-        height: calc(100vh - 180px);
-        margin: 4rem 0 4rem 2rem;
+    margin: 1rem 2rem 0rem 2rem;
+
+    @include m.tablet {
+        min-height: calc(100vh - 170px);
+        margin: 1rem 0 4rem 2rem;
+        // width: calc(100% - 80%);
     }
-    
-    // @include m.tablet {
-    //     width: calc(100% - 80%);
-    // }
-    
-    @include m.desktop{
+
+    @include m.desktop {
         width: calc(100% - 2rem);
     }
 
     p {
         color: v.$negro;
     }
-    
+
     h2 {
         color: v.$blanco;
         margin: 0;
@@ -49,54 +44,66 @@
 
     .forms-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        // margin-block-start: 1rem;
-        // place-content: center;
-        
-        @include m.tablet{
+        grid-template-columns: repeat(3, minmax(130px, 1fr));
+        overflow-x: auto;
+        overflow-y: auto;
+
+        @include m.tablet {
             grid-template-columns: none;
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(3, minmax(130px, 1fr));
         }
 
         .form-item {
+            color: v.$negro;
             align-self: center;
-            // margin-block: 1rem;
             display: grid;
             background-color: lighten(v.$gris, 35%);
             border-radius: v.$radiusContenedor;
-            height: 120px;
-            padding-inline: 1rem;
-            width: 80%;
+            grid-template-rows: repeat(2, 1fr);
+            height: 70%; //70
+            min-height: 70%;
+            padding-inline: 1.3rem;
+            width: 80%; //80
             margin-inline: auto;
 
-            &:last-child{
-                > p{
-                    &::after{
-                        margin-block: auto;
-                        text-align: center;
+            @include m.tablet {
+                height: 80%;
+            }
+
+            &:hover {
+                background-color: lighten(v.$gris, 30%);
+            }
+
+            &:last-child {
+                .form-name>p {
+                    &::after {
                         content: "Plan de Riego";
-                        
-                        @include m.desktop{
+
+                        @include m.desktop {
                             content: "Inscripción en Plan de Riego DRAT";
                         }
                     }
                 }
             }
 
-        }
+            .form-name {
 
-        p{
-            font-size: 1.5rem;
-            text-align: center;
-        }
+                p {
+                    line-height: 1.5;
+                    font-size: 1.5rem;
+                    text-align: center;
+                }
+            }
 
-        .svg-block{
-            align-content: end;
-            display: grid;
-            justify-content: center;
-            padding-block-start: 2rem;
-        }
 
+            .svg-block {
+                display: grid;
+                align-content: end;
+                justify-content: center;
+                // place-content: center;
+            }
+
+        }
     }
 
     .senara-menu {
@@ -160,15 +167,9 @@
     }
 
     a {
-        display: block;
-        padding: 1.5rem 3rem;
         transition-property: background-color;
         transition-duration: 300ms;
-        //text-transform: uppercase;
-        //font-weight: bold;
         font-size: 2.4rem;
-        margin-bottom: 0 !important;
-        text-align: center;
 
         >span {
             padding-left: 0.7rem;
@@ -176,12 +177,6 @@
 
         >i:last-child {
             float: right;
-        }
-
-        @include m.tablet {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            text-align: left;
         }
     }
 

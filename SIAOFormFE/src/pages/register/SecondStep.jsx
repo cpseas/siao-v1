@@ -2,14 +2,14 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faKey, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const SecondStep = ({ errors, touched }) => {
     return (
         <>
             <div className="senara-form-group">
                 {errors.email && touched.email ? (
-                    <div className="senara-actions">{errors.email}</div>
+                    <div className="a-alert">{errors.email}</div>
                 ) : null}
                 <Field
                     id="email"
@@ -20,12 +20,12 @@ const SecondStep = ({ errors, touched }) => {
                 />
                 <span className="highlight"></span>
                 <label>Correo</label>
-                <FontAwesomeIcon icon={faKey} />
+                <FontAwesomeIcon icon={faEnvelope} />
             </div>
 
             <div className="senara-form-group">
                 {errors.userName && touched.userName ? (
-                    <div className="senara-actions">{errors.userName}</div>
+                    <div className="a-alert">{errors.userName}</div>
                 ) : null}
                 <Field
                     id="userName"
@@ -36,12 +36,12 @@ const SecondStep = ({ errors, touched }) => {
                 />
                 <span className="highlight"></span>
                 <label>Nombre de Usuario</label>
-                <FontAwesomeIcon icon={faKey} />
+                <FontAwesomeIcon icon={faUser} />
             </div>
 
             <div className="senara-form-group">
                 {errors.password && touched.password ? (
-                    <div className="senara-actions">{errors.password}</div>
+                    <div className="a-alert">{errors.password}</div>
                 ) : null}
                 <Field
                     id="password"
@@ -57,7 +57,7 @@ const SecondStep = ({ errors, touched }) => {
 
             <div className="senara-form-group">
                 {errors.confirmation && touched.confirmation ? (
-                    <div className="senara-actions">{errors.confirmation}</div>
+                    <div className="a-alert">{errors.confirmation}</div>
                 ) : null}
                 <Field
                     id="confirmation"
