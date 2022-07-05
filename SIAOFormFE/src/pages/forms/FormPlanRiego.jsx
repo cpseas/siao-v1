@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, FieldArray } from 'formik'
 import * as Yup from 'yup'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,8 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../../hooks/useAuth'
 import { getData } from '../../helpers/loadUserData'
+
+import Crops from './Crops'
 
 const FormPlanRiego = () => {
     const { user, token } = useAuth()
@@ -42,18 +44,25 @@ const FormPlanRiego = () => {
     return (
         <>
             <div className='title-container'>
-                <p> Perfil </p>
+                <p> Plan de Riego DRAT </p>
             </div>
             <div className="senara-forms">
                 <Formik
                     initialValues={{
-                        cultivo: '',
+                        crops: [
+                            {
+                                cultivo: '',
+                                toma: '',
+                                area: '',
+                                fecha: ''
+                            }
+                        ],
                         date: ''
                     }}
                     onSubmit={values => handleSubmit(values)}
                     validationSchema={planRiegoSchema}
                 >
-                    {({ errors, touched }) => {
+                    {({ errors, touched, values }) => {
                         return (
                             <Form className="forms-container">
                                 {loading
@@ -155,7 +164,6 @@ const FormPlanRiego = () => {
                                                 </div>
                                             </div>
 
-
                                             <div className="senara-form-group">
                                                 <Field
                                                     id="irrigableSurface"
@@ -171,27 +179,7 @@ const FormPlanRiego = () => {
 
                                             {/* CROPS HERE */}
 
-                                            {/* <table id='senara-table'>
-                                                <thead>
-                                                    <tr>
-                                                        <th> Cultivo </th>
-                                                        <th> Toma </th>
-                                                        <th> Area </th>
-                                                        <th> Fecha Propuesta </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <button onClick={newCrop}> Agregar </button>
-                                                </tfoot>
-                                            </table> */}
+                                            <Crops touched={touched} errors={errors} values={values} />
 
                                             {/* CROPS END HERE */}
 
@@ -206,7 +194,6 @@ const FormPlanRiego = () => {
                                                     className="floating-input"
                                                 />
                                                 <span className="highlight"></span>
-                                                <label> Fecha </label>
                                                 <FontAwesomeIcon icon={faAddressCard} />
                                             </div>
 
