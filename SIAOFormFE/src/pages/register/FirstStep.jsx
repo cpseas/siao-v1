@@ -2,7 +2,7 @@ import React from 'react'
 import { Field } from 'formik'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 const FirstStep = ({ errors, touched }) => {
     return (
@@ -38,7 +38,7 @@ const FirstStep = ({ errors, touched }) => {
                 />
                 <span className="hightlight"></span>
                 <label>Identificación</label>
-                <FontAwesomeIcon icon={faKey} />
+                <FontAwesomeIcon icon={faAddressCard} />
             </div>
 
             <div className="senara-form-group">
@@ -54,7 +54,7 @@ const FirstStep = ({ errors, touched }) => {
                 />
                 <span className="highlight"></span>
                 <label>Nombre Completo</label>
-                <FontAwesomeIcon icon={faKey} />
+                <FontAwesomeIcon icon={faAddressCard} />
             </div>
 
             <div className="senara-form-group">

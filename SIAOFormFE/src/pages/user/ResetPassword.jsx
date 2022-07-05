@@ -23,70 +23,65 @@ const ResetPassword = () => {
     }
 
     return (
-        <div>
-            <div className="senara-content-login senara-content-sm-login">
-                <div className="senara-logo">
-                    <div className="senara-img-logo"></div>
-                </div>
-
-                <p className="senara-tagline">CAMBIAR CONTRASEÑA</p>
-
-                <Formik
-                    initialValues={{
-                        password: "",
-                        confirmPassword: "",
-                    }}
-                    onSubmit={(values) => { handleSubmit(values) }}
-                    validationSchema={ResetPasswordSchema}
-                >
-                    {({ errors, touched }) => {
-                        return (
-                            <Form className="senara-form">
-                                <div className="senara-form-group">
-                                    <p
-                                        className="senara-form-group floating-label senara-description-page"
-                                        htmlFor="password"
-                                    ></p>
-                                    <Field
-                                        id="password"
-                                        type="password"
-                                        className="floating-input "
-                                        placeholder="Ingrese su nueva contraseña"
-                                        name="password"
-                                    />
-                                    {errors.password && touched.password ? (
-                                        <p className="alert-senara-error">{errors.password}</p>
-                                    ) : null}
-                                </div>
-
-                                <div className="senara-form-group">
-                                    <p
-                                        className="senara-form-group floating-label senara-description-page"
-                                        htmlFor="confirmPassword"
-                                    ></p>
-                                    <Field
-                                        id="confirmPassword"
-                                        type="password"
-                                        className="floating-input "
-                                        placeholder="Vuelva a Ingresar su contraseña"
-                                        name="confirmPassword"
-                                    />
-                                    {errors.confirmPassword && touched.confirmPassword ? (
-                                        <p className="alert-senara-error">
-                                            {errors.confirmPassword}
-                                        </p>
-                                    ) : null}
-                                </div>
-
-                                <input type="submit" value="Cambiar" className="senara-btn-primary btn-center" />
-                            </Form>
-                        );
-                    }}
-                </Formik>
+        <div className="senara-content-login senara-content-sm-login">
+            <div className="senara-logo">
+                <div className="senara-img-logo"></div>
             </div>
-            <div className="senara-footer-decoration">
-                <div className="decoration-logo"></div>
-            </div>
+
+            <p className="senara-tagline">CAMBIAR CONTRASEÑA</p>
+
+            <Formik
+                initialValues={{
+                    password: "",
+                    confirmPassword: "",
+                }}
+                onSubmit={(values) => { handleSubmit(values) }}
+                validationSchema={ResetPasswordSchema}
+            >
+                {({ errors, touched }) => {
+                    return (
+                        <Form className="senara-form">
+                            <div className="senara-form-group">
+                                <p
+                                    className="senara-form-group floating-label senara-description-page"
+                                    htmlFor="password"
+                                ></p>
+                                <Field
+                                    id="password"
+                                    type="password"
+                                    className="floating-input "
+                                    placeholder="Ingrese su nueva contraseña"
+                                    name="password"
+                                />
+                                {errors.password && touched.password ? (
+                                    <p className="alert-senara-error">{errors.password}</p>
+                                ) : null}
+                            </div>
+
+                            <div className="senara-form-group">
+                                <p
+                                    className="senara-form-group floating-label senara-description-page"
+                                    htmlFor="confirmPassword"
+                                ></p>
+                                <Field
+                                    id="confirmPassword"
+                                    type="password"
+                                    className="floating-input "
+                                    placeholder="Vuelva a Ingresar su contraseña"
+                                    name="confirmPassword"
+                                />
+                                {errors.confirmPassword && touched.confirmPassword ? (
+                                    <p className="alert-senara-error">
+                                        {errors.confirmPassword}
+                                    </p>
+                                ) : null}
+                            </div>
+
+                            <input type="submit" value="Cambiar" className="senara-btn-primary btn-center" />
+                        </Form>
+                    );
+                }}
+            </Formik>
         </div>
     );
 };

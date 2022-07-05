@@ -15,7 +15,7 @@
 
     .senara-content-principal {
         display: grid;
-        grid-template-rows: 260px 1fr;
+        grid-template-rows: 210px 1fr;
 
         @include m.tablet {
             grid-template-columns: 260px 1fr;
@@ -31,12 +31,12 @@
         border-radius: v.$radiusContenedor;
         display: grid;
         grid-template-rows: 40px 1fr;
-        height: calc(100vh - 180px);
+        height: calc(100vh - 170px);
         margin: 2rem;
         box-shadow: v.$boxShadow;
 
         @include m.tablet {
-            margin: 2rem 2rem;
+            margin: 1rem 2rem;
         }
 
         // @include m.desktop {

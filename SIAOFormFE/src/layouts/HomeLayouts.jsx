@@ -40,19 +40,25 @@ const HomeLayouts = () => {
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
-                            <p> Formulario de Quejas </p>
+                            <div className='form-name'>
+                                <p> Formulario de Quejas </p>
+                            </div>
                         </Link>
                         <Link to={'/dashboard/plan-riego'} className="form-item">
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
-                            <p> Solicitud de Riego </p>
+                            <div className='form-name'>
+                                <p> Solicitud de Riego </p>
+                            </div>
                         </Link>
                         <Link to={'/dashboard/plan-riego'} className="form-item">
                             <div className="svg-block">
                                 <FontAwesomeIcon icon={faCalendar} />
                             </div>
-                            <p></p>
+                            <div className='form-name'>
+                                <p></p>
+                            </div>
                         </Link>
                     </div>
                 </div>
