@@ -72,7 +72,7 @@ const FormSolicitudRiego = () => {
                   <div>
                     <div className="senara-form-group">
                       {errors.nParcela && touched.nParcela ? (
-                        <div className="senara-actions">{errors.nParcela}</div>
+                        <div className="a-alert">{errors.nParcela}</div>
                       ) : null}
                       <Field
                         id="nParcela"
@@ -86,7 +86,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.proyecto && touched.proyecto ? (
-                        <div className="senara-actions">{errors.proyecto}</div>
+                        <div className="a-alert">{errors.proyecto}</div>
                       ) : null}
                       <Field
                         id="proyecto"
@@ -100,9 +100,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.subDistrito && touched.subDistrito ? (
-                        <div className="senara-actions">
-                          {errors.subDistrito}
-                        </div>
+                        <div className="a-alert">{errors.subDistrito}</div>
                       ) : null}
                       <Field
                         id="subDistrito"
@@ -116,7 +114,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.area && touched.area ? (
-                        <div className="senara-actions">{errors.area}</div>
+                        <div className="a-alert">{errors.area}</div>
                       ) : null}
                       <Field
                         id="area"
@@ -130,7 +128,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.cultivo && touched.cultivo ? (
-                        <div className="senara-actions">{errors.cultivo}</div>
+                        <div className="a-alert">{errors.cultivo}</div>
                       ) : null}
                       <Field
                         id="cultivo"
@@ -147,7 +145,7 @@ const FormSolicitudRiego = () => {
                     <div className="senara-form-group">
                       {errors.rendimientoAnterior &&
                       touched.rendimientoAnterior ? (
-                        <div className="senara-actions">
+                        <div className="a-alert">
                           {errors.rendimientoAnterior}
                         </div>
                       ) : null}
@@ -162,7 +160,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.variedad && touched.variedad ? (
-                        <div className="senara-actions">{errors.variedad}</div>
+                        <div className="a-alert">{errors.variedad}</div>
                       ) : null}
                       <Field
                         id="variedad"
@@ -176,9 +174,7 @@ const FormSolicitudRiego = () => {
 
                     <div className="senara-form-group">
                       {errors.fechaReciboRiego && touched.fechaReciboRiego ? (
-                        <div className="senara-actions">
-                          {errors.fechaReciboRiego}
-                        </div>
+                        <div className="a-alert">{errors.fechaReciboRiego}</div>
                       ) : null}
 
                       <Field
@@ -191,7 +187,7 @@ const FormSolicitudRiego = () => {
 
                     <div className="senara-form-group">
                       {errors.fax && touched.fax ? (
-                        <div className="senara-actions">{errors.fax}</div>
+                        <div className="a-alert">{errors.fax}</div>
                       ) : null}
                       <Field
                         id="fax"
@@ -204,7 +200,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.email && touched.email ? (
-                        <div className="senara-actions">{errors.email}</div>
+                        <div className="a-alert">{errors.email}</div>
                       ) : null}
                       <Field
                         id="email"
@@ -217,9 +213,7 @@ const FormSolicitudRiego = () => {
                     </div>
                     <div className="senara-form-group">
                       {errors.observaciones && touched.observaciones ? (
-                        <div className="senara-actions">
-                          {errors.observaciones}
-                        </div>
+                        <div className="a-alert">{errors.observaciones}</div>
                       ) : null}
                       <Field
                         id="observaciones"
