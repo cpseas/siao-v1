@@ -78,10 +78,12 @@ const FormSolicitudRiego = () => {
                         id="nParcela"
                         name="nParcela"
                         type="text"
-                        placeholder="Numero de Parcela"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
+                      <label> Numero de Parcela </label>
+                      <span className="highlight"></span>
                       <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
@@ -92,10 +94,13 @@ const FormSolicitudRiego = () => {
                         id="proyecto"
                         name="proyecto"
                         type="text"
-                        placeholder="Nombre del Proyecto"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
+                      <label> Nombre del Proyecto </label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.subDistrito && touched.subDistrito ? (
@@ -105,11 +110,13 @@ const FormSolicitudRiego = () => {
                         id="subDistrito"
                         name="subDistrito"
                         type="text"
-                        placeholder="SubDistrito"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
-                      <FontAwesomeIcon icon={faUser} />
+                      <label>SubDistrito </label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.area && touched.area ? (
@@ -119,11 +126,13 @@ const FormSolicitudRiego = () => {
                         id="area"
                         name="area"
                         type="text"
-                        placeholder="Area"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
-                      <FontAwesomeIcon icon={faKey} />
+                      <label>Area</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.cultivo && touched.cultivo ? (
@@ -133,10 +142,13 @@ const FormSolicitudRiego = () => {
                         id="cultivo"
                         name="cultivo"
                         type="text"
-                        placeholder="Cultivo"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
+                      <label>Cultivo</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                   </div>
                   <div>
@@ -151,10 +163,13 @@ const FormSolicitudRiego = () => {
                         id="rendimientoAnterior"
                         name="rendimientoAnterior"
                         type="text"
-                        placeholder="Rendimiento anterior"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       ></Field>
+                      <label>Rendimiento anterior</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.variedad && touched.variedad ? (
@@ -164,10 +179,13 @@ const FormSolicitudRiego = () => {
                         id="variedad"
                         name="variedad"
                         type="text"
-                        placeholder="Variedad"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       ></Field>
+                      <label>Variedad</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
 
                     <div className="senara-form-group">
@@ -181,6 +199,9 @@ const FormSolicitudRiego = () => {
                         type="date"
                         className="floating-input"
                       ></Field>
+                      <label>Fecha de ultimo riego</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
 
                     <div className="senara-form-group">
@@ -191,10 +212,12 @@ const FormSolicitudRiego = () => {
                         id="fax"
                         name="fax"
                         type="text"
-                        placeholder="Fax"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       ></Field>
+                      <label>Fax</label>
+                      <span className="highlight"></span>
                       <FontAwesomeIcon icon={faPhone} />
                     </div>
                     <div className="senara-form-group">
@@ -205,10 +228,12 @@ const FormSolicitudRiego = () => {
                         id="email"
                         name="email"
                         type="text"
-                        placeholder="Correo"
+                        placeholder=""
                         className="floating-input"
                         value=""
                       />
+                      <label>Correo</label>
+                      <span className="highlight"></span>
                       <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                     <div className="senara-form-group">
@@ -219,10 +244,13 @@ const FormSolicitudRiego = () => {
                         id="observaciones"
                         name="observaciones"
                         as="textarea"
-                        placeholder="Observaciones"
+                        placeholder=""
                         className="floating-textarea"
                         value=""
                       />
+                      <label>Observaciones</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                   </div>
                 </div>
