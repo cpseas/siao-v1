@@ -1,60 +1,63 @@
 import React from 'react'
 import { Field, FieldArray } from 'formik'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+
+
 const Crops = ({ touched, errors, values }) => {
     return (
         <div className="senara-form-group">
             <FieldArray name="crops">
                 {({ insert, remove, push }) => (
-                    <table id='senara-table'>
+                    <table className='siao-table'>
                         <thead>
                             <tr>
                                 <th>Cultivo</th>
                                 <th>Toma</th>
                                 <th>Area</th>
                                 <th>Fecha</th>
-                                <th>Acción</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
                             {values.crops.length > 0 &&
                                 values.crops.map((_, index) => (
                                     <tr key={index}>
-                                        <th>
+                                        <td>
                                             <Field
                                                 name={`crops.${index}.cultivo`}
                                                 placeholder="Cultivo"
                                                 type="text"
                                             />
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             <Field
                                                 name={`crops.${index}.toma`}
                                                 placeholder="Toma"
                                                 type="text"
                                             />
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             <Field
                                                 name={`crops.${index}.area`}
                                                 placeholder="Area Cultivo"
                                                 type="text"
                                             />
-                                        </th>
-                                        <th>
+                                        </td>
+                                        <td>
                                             <Field
                                                 name={`crops.${index}.fecha`}
                                                 type="date"
                                             />
-                                        </th>
-                                        <th>
-                                            <button
-                                                type="button"
-                                                onClick={() => remove(index)}
-                                            >
-                                                X
-                                            </button>
-                                        </th>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a onClick={() => remove(index)}>
+                                                    <FontAwesomeIcon icon={faTrashCan} />
+                                                </a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 ))}
                         </tbody>
@@ -62,8 +65,9 @@ const Crops = ({ touched, errors, values }) => {
                             <tr>
                                 <td>
                                     <input
-                                        value="Agregar Cultivo"
+                                        value="+"
                                         type="button"
+                                        className='table-btn senara-btn-primary'
                                         onClick={() => push({ cultivo: '', toma: '', area: '', fecha: '' })}
                                     />
                                 </td>

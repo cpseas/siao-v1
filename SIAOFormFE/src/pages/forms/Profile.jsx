@@ -165,9 +165,11 @@ const Profile = () => {
                                                         id="phone"
                                                         name="phone"
                                                         type="tel"
-                                                        placeholder="Teléfono"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
+                                                    <span className='highlight'></span>
+                                                    <label> Telefono </label>
                                                     <FontAwesomeIcon icon={faPhone} />
                                                 </div>
                                             </div>
