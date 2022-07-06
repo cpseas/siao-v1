@@ -145,6 +145,22 @@ const FormSolicitudRiego = () => {
                       <span className="highlight"></span>
                       <FontAwesomeIcon icon={faAddressCard} />
                     </div>
+
+                    <div className="senara-form-group">
+                      {errors.observaciones && touched.observaciones ? (
+                        <div className="a-alert">{errors.observaciones}</div>
+                      ) : null}
+                      <Field
+                        id="observaciones"
+                        name="observaciones"
+                        as="textarea"
+                        placeholder=""
+                        className="floating-textarea"
+                      />
+                      <label>Observaciones</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
+                    </div>
                   </div>
                   <div>
                     <div className="senara-form-group">
@@ -226,21 +242,6 @@ const FormSolicitudRiego = () => {
                       <label>Correo</label>
                       <span className="highlight"></span>
                       <FontAwesomeIcon icon={faEnvelope} />
-                    </div>
-                    <div className="senara-form-group">
-                      {errors.observaciones && touched.observaciones ? (
-                        <div className="a-alert">{errors.observaciones}</div>
-                      ) : null}
-                      <Field
-                        id="observaciones"
-                        name="observaciones"
-                        as="textarea"
-                        placeholder=""
-                        className="floating-textarea"
-                      />
-                      <label>Observaciones</label>
-                      <span className="highlight"></span>
-                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                   </div>
                 </div>
