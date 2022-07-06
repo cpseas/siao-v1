@@ -11,6 +11,7 @@ import {
   faAddressCard,
   faEnvelope,
   faPhone,
+  faCalendarDays,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../../hooks/useAuth'
@@ -210,7 +211,7 @@ const FormSolicitudRiego = () => {
                       ></Field>
                       <label>Fecha de ultimo riego</label>
                       <span className="highlight"></span>
-                      <FontAwesomeIcon icon={faAddressCard} />
+                      <FontAwesomeIcon icon={faCalendarDays} />
                     </div>
 
                     <div className="senara-form-group">
