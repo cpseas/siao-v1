@@ -183,7 +183,8 @@ label {
 }
 
 .floating-textarea {
-  min-height: 30px;
+  padding: 1rem;
+  min-height: 95px;
   max-height: 260px;
   overflow: hidden;
   overflow-x: hidden;

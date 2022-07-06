@@ -18,6 +18,14 @@ export const getUser = async (id, token) => {
 	})
 }
 
+export const updateUser = async (id, values, token) => {
+	return await axios.patch(`${API}/profile/${id}`, values, {
+		headers: {
+			Authorization: token
+		}
+	})
+}
+
 export const forgetPassword = async email => {
 	return await axios.post(`${API}/forget-password`, email)
 }

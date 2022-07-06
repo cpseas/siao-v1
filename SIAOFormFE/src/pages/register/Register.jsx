@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
@@ -32,13 +32,21 @@ const Register = () => {
             .oneOf([Yup.ref('password'), null], 'Contraseñas no coinciden!')
     })
 
+    const navigate = useNavigate()
+
     const [step, setStep] = useState(1)
+
     const nextStep = () => setStep(step + 1)
     // const previousStep = () => setStep(step - 1)
+
     const handleSubmit = async e => {
         delete e['confirmation']
         const res = await registerUser(e)
-        console.log(res)
+        if (res.status === 200) {
+            setTimeout(() => {
+                navigate("/", { replace: true })
+            }, 500);
+        }
     }
 
     return (

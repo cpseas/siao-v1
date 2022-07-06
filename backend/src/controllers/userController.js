@@ -74,13 +74,13 @@ export const login = async (req, res) => {
     } catch (error) {
         return res.status(500).json({ msg: "Error Inesperado!" })
     }
-};
+}
 
 // Get User Info
 export const getUser = async (req, res) => {
     const userData = await User.find(
         { identification: req.params.id },
-        { _id: 0, genre: 0, identification: 0, identificationType: 0 }
+        { _id: 0, genre: 0, identification: 0, identificationType: 0, token: 0 }
     )
 
     if (userData) {
@@ -88,6 +88,30 @@ export const getUser = async (req, res) => {
     }
 
     return res.status(401).json({ msg: "Error Inesperado!" })
+}
+
+// Update User Profile
+export const updateUser = async (req, res) => {
+    const { id } = req.params
+    try {
+        if (!id) {
+            return res.status(401).json({ msg: "ID no suministrado!" })
+        }
+
+        if (!req.body) {
+            return res.status(401).json({ msg: "Información a actualizar no suministrada!" })
+        }
+
+        const user = await User.findByIdAndUpdate({ identification: req.params.id }, req.body, { new: true })
+
+        if (user) {
+            return res.status(200).json({ msg: "Perfil Actualizado!" })
+        }
+
+        return res.status(401).json({ msg: "No se actualizó el perfil!" })
+    } catch (error) {
+        return res.status(500).json({ msg: "Error Inesperado!" })
+    }
 }
 
 // Check if email exist and send email
@@ -141,7 +165,7 @@ export const validateEmail = async (req, res) => {
     }
 }
 
-// Update user password
+// Update User Password
 export const changePassword = async (req, res) => {
     const { password } = req.body
     try {

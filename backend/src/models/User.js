@@ -45,6 +45,31 @@ const userSchema = new Schema({
         required: true,
         trim: true,
     },
+    phone: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    province: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    canton: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    district: {
+        type: String,
+        required: false,
+        trim: true
+    },
+    exactAddress: {
+        type: String,
+        required: false,
+        trim: true
+    }
 }, {
     versionKey: false,
 })
