@@ -96,7 +96,6 @@ const FormSolicitudRiego = () => {
                         className="floating-input"
                         value=""
                       />
-                      <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                     <div className="senara-form-group">
                       {errors.subDistrito && touched.subDistrito ? (
@@ -138,7 +137,6 @@ const FormSolicitudRiego = () => {
                         className="floating-input"
                         value=""
                       />
-                      <FontAwesomeIcon icon={faPhone} />
                     </div>
                   </div>
                   <div>
@@ -197,6 +195,7 @@ const FormSolicitudRiego = () => {
                         className="floating-input"
                         value=""
                       ></Field>
+                      <FontAwesomeIcon icon={faPhone} />
                     </div>
                     <div className="senara-form-group">
                       {errors.email && touched.email ? (
@@ -210,6 +209,7 @@ const FormSolicitudRiego = () => {
                         className="floating-input"
                         value=""
                       />
+                      <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                     <div className="senara-form-group">
                       {errors.observaciones && touched.observaciones ? (
