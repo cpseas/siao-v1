@@ -65,7 +65,7 @@ const FormSolicitudRiego = () => {
           onSubmit={(values) => handleSubmit(values)}
           validationSchema={profileSchema}
         >
-          {({ errors, touched, setFieldValue }) => {
+          {({ errors, touched }) => {
             return (
               <Form className="forms-container">
                 <div className="forms-content">
@@ -80,7 +80,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label> Numero de Parcela </label>
                       <span className="highlight"></span>
@@ -96,7 +95,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label> Nombre del Proyecto </label>
                       <span className="highlight"></span>
@@ -112,7 +110,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label>SubDistrito </label>
                       <span className="highlight"></span>
@@ -128,7 +125,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label>Area</label>
                       <span className="highlight"></span>
@@ -144,7 +140,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label>Cultivo</label>
                       <span className="highlight"></span>
@@ -165,7 +160,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
                       <label>Rendimiento anterior</label>
                       <span className="highlight"></span>
@@ -181,7 +175,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
                       <label>Variedad</label>
                       <span className="highlight"></span>
@@ -214,7 +207,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
                       <label>Fax</label>
                       <span className="highlight"></span>
@@ -230,7 +222,6 @@ const FormSolicitudRiego = () => {
                         type="text"
                         placeholder=""
                         className="floating-input"
-                        value=""
                       />
                       <label>Correo</label>
                       <span className="highlight"></span>
@@ -246,7 +237,6 @@ const FormSolicitudRiego = () => {
                         as="textarea"
                         placeholder=""
                         className="floating-textarea"
-                        value=""
                       />
                       <label>Observaciones</label>
                       <span className="highlight"></span>
