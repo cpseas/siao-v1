@@ -22,9 +22,10 @@ export const forgetPassword = async email => {
 	return await axios.post(`${API}/forget-password`, email)
 }
 
-export const resetPassword = async values => {
-	let url = window.location.href
-	let params = new URL(url).searchParams
-	let token = params.get('token')
-	return await axios.post(`${API}/reset-password/${token}`, values)
+export const resetPassword = async (values, token) => {
+	return await axios.post(`${API}/reset-password/${token}`, values, {
+		headers: {
+			Authorization: token
+		}
+	})
 }

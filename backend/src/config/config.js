@@ -10,5 +10,8 @@ export default {
 	},
 	MONGO_DATABASE: process.env.MONGO_DATABASE || 'testenBackend',
 	MONGO_HOST: process.env.MONGO_HOST || 'localhost',
-	PORT: process.env.PORT || 4000
+	PORT: process.env.PORT || 4000,
+	FRONTEND: {
+		URL: 'http://localhost:3000'
+	}
 }
