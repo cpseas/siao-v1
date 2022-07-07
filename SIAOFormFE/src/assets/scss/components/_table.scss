@@ -343,77 +343,85 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     }
 }
 
-.siao-table {
+.senara-form-group {
     width: 100%;
-    border-collapse: collapse;
+    overflow-x: auto;
 
-    thead {
-        background-color: lighten(v.$gris, 35%)
-    }
+    .table-container {
+        padding: 1rem 0;
 
-    th {
-        padding: .5rem;
-    }
-
-    thead,
-    tbody {
-
-        tr {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr) 100px;
-
-        }
-
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        td {
-            margin: 0;
-            padding: 0;
-
-            input {
-                text-align: center;
-                border: 0;
-                width: 100%;
-                padding: .5rem;
-            }
-        }
-    }
-
-    tbody>tr>td {
-        div {
-            display: grid;
+        #siao-table {
             width: 100%;
-            height: 100%;
-            cursor: pointer;
+            border-collapse: collapse;
 
-            a {
-                display: grid;
-                place-content: center;
-            }
-
-            &:hover {
+            thead {
                 background-color: lighten(v.$gris, 35%)
             }
 
-        }
-    }
-
-    tfoot>tr {
-        border: none;
-
-        >td {
-            display: grid;
-            justify-items: end;
-            margin: 0;
-            padding: 0;
-
-            input[type="button"].table-btn {
+            th {
                 padding: .5rem;
-                border-radius: 0;
-                width: 40px;
+            }
+
+            thead,
+            tbody {
+
+                tr {
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(150px, 1fr)) 100px;
+                }
+
+                th,
+                td {
+                    border: 1px solid black;
+                }
+
+                td {
+                    margin: 0;
+                    padding: 0;
+
+                    input {
+                        text-align: center;
+                        border: 0;
+                        width: 100%;
+                        padding: .5rem;
+                    }
+                }
+            }
+
+            tbody>tr>td {
+                div {
+                    display: grid;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+
+                    a {
+                        display: grid;
+                        place-content: center;
+                    }
+
+                    &:hover {
+                        background-color: lighten(v.$gris, 35%)
+                    }
+
+                }
+            }
+
+            tfoot>tr {
+                border: none;
+
+                >td {
+                    display: grid;
+                    justify-items: end;
+                    margin: 0;
+                    padding: 0;
+
+                    input[type="button"].table-btn {
+                        padding: .5rem;
+                        border-radius: 0;
+                        width: 40px;
+                    }
+                }
             }
         }
     }

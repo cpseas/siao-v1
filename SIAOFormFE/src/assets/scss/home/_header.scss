@@ -9,23 +9,31 @@
     grid-template-columns: repeat(2, 1fr);
     margin: 10px;
 
+
     @include m.tablet {
         justify-content: space-between;
-        align-items: center;
         display: flex;
     }
 
     .senara-logo-header {
         width: 20rem;
-        height: 10rem;
         display: flex;
 
+        @include m.tablet {
+            padding-left: 2rem;
+        }
+
         .senara-img-logo-header {
+            transform: scale(.75);
             width: 100%;
             background-image: url('../img/logo_letra.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center center;
+
+            @include m.tablet {
+                transform: scale(1);
+            }
         }
     }
 
@@ -34,9 +42,17 @@
         gap: 2rem;
         // text-align: center;
         // background-position: right right;
-        // align-items: center;
+        align-items: center;
         padding-right: 2rem;
         justify-items: end;
+
+        >a:nth-child(1) {
+            padding-top: 1.5rem;
+        }
+
+        >a:nth-child(2) {
+            padding-bottom: 1.5rem;
+        }
 
         svg {
             padding-left: 1.5rem;
@@ -56,6 +72,7 @@
             display: block;
             color: green;
             max-width: 60%;
+            align-self: center;
         }
     }
 
