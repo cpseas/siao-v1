@@ -7,6 +7,7 @@ import AuthLayouts from './layouts/AuthLayouts'
 import Login from './pages/user/Login'
 import ForgetPassword from './pages/user/ForgetPassword'
 import ResetPassword from './pages/user/ResetPassword'
+import FormDeQuejas from './pages/forms/FormDeQuejas'
 
 import HomeLayouts from './layouts/HomeLayouts'
 import Profile from './pages/forms/Profile'
@@ -29,6 +30,7 @@ function App() {
 						<Route path="profile" element={<Profile />} />
 						<Route path="plan-riego" element={<FormPlanRiego />} />
             <Route path="form-solicitud-riego" element={<FormSolicitudRiego />} />
+            <Route path="form-de-quejas" element={<FormDeQuejas />} />
 					</Route>
 				</Routes>
 			</AuthProvider>

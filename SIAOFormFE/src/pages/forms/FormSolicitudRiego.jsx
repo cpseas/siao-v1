@@ -11,6 +11,7 @@ import {
   faAddressCard,
   faEnvelope,
   faPhone,
+  faCalendarDays,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../../hooks/useAuth'
@@ -65,89 +66,108 @@ const FormSolicitudRiego = () => {
           onSubmit={(values) => handleSubmit(values)}
           validationSchema={profileSchema}
         >
-          {({ errors, touched, setFieldValue }) => {
+          {({ errors, touched }) => {
             return (
               <Form className="forms-container">
                 <div className="forms-content">
                   <div>
                     <div className="senara-form-group">
                       {errors.nParcela && touched.nParcela ? (
-                        <div className="senara-actions">{errors.nParcela}</div>
+                        <div className="a-alert">{errors.nParcela}</div>
                       ) : null}
                       <Field
                         id="nParcela"
                         name="nParcela"
                         type="text"
-                        placeholder="Numero de Parcela"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
+                      <label> Numero de Parcela </label>
+                      <span className="highlight"></span>
                       <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.proyecto && touched.proyecto ? (
-                        <div className="senara-actions">{errors.proyecto}</div>
+                        <div className="a-alert">{errors.proyecto}</div>
                       ) : null}
                       <Field
                         id="proyecto"
                         name="proyecto"
                         type="text"
-                        placeholder="Nombre del Proyecto"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
-                      <FontAwesomeIcon icon={faEnvelope} />
+                      <label> Nombre del Proyecto </label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.subDistrito && touched.subDistrito ? (
-                        <div className="senara-actions">
-                          {errors.subDistrito}
-                        </div>
+                        <div className="a-alert">{errors.subDistrito}</div>
                       ) : null}
                       <Field
                         id="subDistrito"
                         name="subDistrito"
                         type="text"
-                        placeholder="SubDistrito"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
-                      <FontAwesomeIcon icon={faUser} />
+                      <label>SubDistrito </label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.area && touched.area ? (
-                        <div className="senara-actions">{errors.area}</div>
+                        <div className="a-alert">{errors.area}</div>
                       ) : null}
                       <Field
                         id="area"
                         name="area"
                         type="text"
-                        placeholder="Area"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
-                      <FontAwesomeIcon icon={faKey} />
+                      <label>Area</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.cultivo && touched.cultivo ? (
-                        <div className="senara-actions">{errors.cultivo}</div>
+                        <div className="a-alert">{errors.cultivo}</div>
                       ) : null}
                       <Field
                         id="cultivo"
                         name="cultivo"
                         type="text"
-                        placeholder="Cultivo"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
-                      <FontAwesomeIcon icon={faPhone} />
+                      <label>Cultivo</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
+                    </div>
+
+                    <div className="senara-form-group">
+                      {errors.observaciones && touched.observaciones ? (
+                        <div className="a-alert">{errors.observaciones}</div>
+                      ) : null}
+                      <Field
+                        id="observaciones"
+                        name="observaciones"
+                        as="textarea"
+                        placeholder=""
+                        className="floating-textarea"
+                      />
+                      <label>Observaciones</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                   </div>
                   <div>
                     <div className="senara-form-group">
                       {errors.rendimientoAnterior &&
                       touched.rendimientoAnterior ? (
-                        <div className="senara-actions">
+                        <div className="a-alert">
                           {errors.rendimientoAnterior}
                         </div>
                       ) : null}
@@ -155,30 +175,32 @@ const FormSolicitudRiego = () => {
                         id="rendimientoAnterior"
                         name="rendimientoAnterior"
                         type="text"
-                        placeholder="Rendimiento anterior"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
+                      <label>Rendimiento anterior</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
                     <div className="senara-form-group">
                       {errors.variedad && touched.variedad ? (
-                        <div className="senara-actions">{errors.variedad}</div>
+                        <div className="a-alert">{errors.variedad}</div>
                       ) : null}
                       <Field
                         id="variedad"
                         name="variedad"
                         type="text"
-                        placeholder="Variedad"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
+                      <label>Variedad</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faAddressCard} />
                     </div>
 
                     <div className="senara-form-group">
                       {errors.fechaReciboRiego && touched.fechaReciboRiego ? (
-                        <div className="senara-actions">
-                          {errors.fechaReciboRiego}
-                        </div>
+                        <div className="a-alert">{errors.fechaReciboRiego}</div>
                       ) : null}
 
                       <Field
@@ -187,48 +209,40 @@ const FormSolicitudRiego = () => {
                         type="date"
                         className="floating-input"
                       ></Field>
+                      <label>Fecha de ultimo riego</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faCalendarDays} />
                     </div>
 
                     <div className="senara-form-group">
                       {errors.fax && touched.fax ? (
-                        <div className="senara-actions">{errors.fax}</div>
+                        <div className="a-alert">{errors.fax}</div>
                       ) : null}
                       <Field
                         id="fax"
                         name="fax"
                         type="text"
-                        placeholder="Fax"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       ></Field>
+                      <label>Fax</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faPhone} />
                     </div>
                     <div className="senara-form-group">
                       {errors.email && touched.email ? (
-                        <div className="senara-actions">{errors.email}</div>
+                        <div className="a-alert">{errors.email}</div>
                       ) : null}
                       <Field
                         id="email"
                         name="email"
                         type="text"
-                        placeholder="Correo"
+                        placeholder=""
                         className="floating-input"
-                        value=""
                       />
-                    </div>
-                    <div className="senara-form-group">
-                      {errors.observaciones && touched.observaciones ? (
-                        <div className="senara-actions">
-                          {errors.observaciones}
-                        </div>
-                      ) : null}
-                      <Field
-                        id="observaciones"
-                        name="observaciones"
-                        as="textarea"
-                        placeholder="Observaciones"
-                        className="floating-textarea"
-                        value=""
-                      />
+                      <label>Correo</label>
+                      <span className="highlight"></span>
+                      <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                   </div>
                 </div>
