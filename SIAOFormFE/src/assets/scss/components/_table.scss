@@ -1,5 +1,5 @@
-@use 'base/variables'as v;
-@use 'base/mixins'as m;
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
 
 .border-right {
     border-right: thin solid #F5F5F5
@@ -78,6 +78,7 @@
 #senara-table {
     width: 100%;
     border-collapse: collapse;
+
     >thead {
         >tr {
             >th {
@@ -88,6 +89,7 @@
 
     >tbody {
         position: relative;
+
         //height: 36rem;
         >tr {
             >td:last-child {
@@ -127,7 +129,7 @@
 }
 
 #senara-table td {
-    padding: 4px 8px;
+    // padding: 4px 8px;
     font-size: 1.5rem;
     font-weight: 400;
     color: #474443;
@@ -338,5 +340,81 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     &.desactive {
         background-color: darken(v.$naranja, 10%);
         color: v.$blanco;
+    }
+}
+
+.siao-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        background-color: lighten(v.$gris, 35%)
+    }
+
+    th {
+        padding: .5rem;
+    }
+
+    thead,
+    tbody {
+
+        tr {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) 100px;
+
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td {
+            margin: 0;
+            padding: 0;
+
+            input {
+                text-align: center;
+                border: 0;
+                width: 100%;
+                padding: .5rem;
+            }
+        }
+    }
+
+    tbody>tr>td {
+        div {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+
+            a {
+                display: grid;
+                place-content: center;
+            }
+
+            &:hover {
+                background-color: lighten(v.$gris, 35%)
+            }
+
+        }
+    }
+
+    tfoot>tr {
+        border: none;
+
+        >td {
+            display: grid;
+            justify-items: end;
+            margin: 0;
+            padding: 0;
+
+            input[type="button"].table-btn {
+                padding: .5rem;
+                border-radius: 0;
+                width: 40px;
+            }
+        }
     }
 }

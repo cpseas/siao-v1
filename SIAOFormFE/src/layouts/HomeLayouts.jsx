@@ -1,10 +1,6 @@
 import { Navigate, Outlet, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faUser,
-  faDoorOpen,
-  faCalendar,
-} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faDoorOpen, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../hooks/useAuth'
 
@@ -43,19 +39,25 @@ const HomeLayouts = () => {
               <div className="svg-block">
                 <FontAwesomeIcon icon={faCalendar} />
               </div>
-              <p> Formulario de Quejas </p>
+              <div className="form-name">
+                <p> Formulario de Quejas </p>
+              </div>
+            </Link>
+            <Link to={'/dashboard/form-solicitud-riego'} className="form-item">
+              <div className="svg-block">
+                <FontAwesomeIcon icon={faCalendar} />
+              </div>
+              <div className="form-name">
+                <p> Solicitud de Riego </p>
+              </div>
             </Link>
             <Link to={'/dashboard/plan-riego'} className="form-item">
               <div className="svg-block">
                 <FontAwesomeIcon icon={faCalendar} />
               </div>
-              <p> Solicitud de Riego </p>
-            </Link>
-            <Link to={'/dashboard/plan-riego'} className="form-item">
-              <div className="svg-block">
-                <FontAwesomeIcon icon={faCalendar} />
+              <div className="form-name">
+                <p></p>
               </div>
-              <p></p>
             </Link>
           </div>
         </div>

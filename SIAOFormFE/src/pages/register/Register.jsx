@@ -1,16 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
 
 import { registerUser } from '../../services/userServices'
 
 import FirstStep from './FirstStep'
 import SecondStep from './SecondStep'
-
 import Logo from '../../components/Logo';
 
 const Register = () => {
@@ -36,78 +32,84 @@ const Register = () => {
             .oneOf([Yup.ref('password'), null], 'Contraseñas no coinciden!')
     })
 
+    const navigate = useNavigate()
+
     const [step, setStep] = useState(1)
+
     const nextStep = () => setStep(step + 1)
     // const previousStep = () => setStep(step - 1)
+
     const handleSubmit = async e => {
         delete e['confirmation']
         const res = await registerUser(e)
-        console.log(res)
+        if (res.status === 200) {
+            setTimeout(() => {
+                navigate("/", { replace: true })
+            }, 500);
+        }
     }
 
     return (
-        <>
-            <div className="senara-content-sm-login">
-                <Logo />
-                <div className="senara-content-legend-auth">
-                    <div className="senara-tagline"> Registro </div>
-                    <div className="senara-description-page">Ingrese los datos solicitados</div>
-                </div>
-                <Formik
-                    initialValues={{
-                        identificationType: '',
-                        identification: '',
-                        fullName: '',
-                        genre: '',
-                        email: '',
-                        userName: '',
-                        password: '',
-                        confirmation: ''
-                    }}
-                    onSubmit={values => {
-                        handleSubmit(values)
-                    }}
-                    validationSchema={registerSchema}
-                >
-                    {({ errors, touched }) => {
-                        return (
-                            <>
-                                <Form className='senara-form form-login'>
-                                    {step === 1 ? (
-                                        <>
-                                            <FirstStep
-                                                errors={errors}
-                                                touched={touched}
-                                                nextStep={nextStep}
-                                            />
-                                            <button
-                                                type="button"
-                                                onClick={nextStep}
-                                                className="senara-btn-primary senara-form-group"
-                                            >
-                                                Siguiente
-                                            </button>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <SecondStep errors={errors} touched={touched} />
-                                            <input
-                                                type="submit"
-                                                value="Enviar"
-                                                className="senara-btn-primary senara-form-group"
-                                            />
-                                        </>
-                                    )}
-                                </Form>
-                                <div className="senara-actions">
-                                    <Link to="/"> Iniciar Sesión </Link>
-                                </div>
-                            </>
-                        )
-                    }}
-                </Formik>
+        <div className="senara-content-sm-login">
+            <Logo />
+            <div className="senara-content-legend-auth">
+                <div className="senara-tagline"> Registro </div>
+                <div className="senara-description-page">Ingrese los datos solicitados</div>
             </div>
-        </>
+            <Formik
+                initialValues={{
+                    identificationType: '',
+                    identification: '',
+                    fullName: '',
+                    genre: '',
+                    email: '',
+                    userName: '',
+                    password: '',
+                    confirmation: ''
+                }}
+                onSubmit={values => {
+                    handleSubmit(values)
+                }}
+                validationSchema={registerSchema}
+            >
+                {({ errors, touched }) => {
+                    return (
+                        <>
+                            <Form className='senara-form form-login'>
+                                {step === 1 ? (
+                                    <>
+                                        <FirstStep
+                                            errors={errors}
+                                            touched={touched}
+                                            nextStep={nextStep}
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={nextStep}
+                                            className="senara-btn-primary senara-form-group"
+                                        >
+                                            Siguiente
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <SecondStep errors={errors} touched={touched} />
+                                        <input
+                                            type="submit"
+                                            value="Enviar"
+                                            className="senara-btn-primary senara-form-group"
+                                        />
+                                    </>
+                                )}
+                            </Form>
+                            <div className="senara-actions">
+                                <Link to="/"> Iniciar Sesión </Link>
+                            </div>
+                        </>
+                    )
+                }}
+            </Formik>
+        </div>
     )
 }
 

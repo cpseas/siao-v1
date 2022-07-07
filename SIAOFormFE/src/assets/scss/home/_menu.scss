@@ -8,13 +8,11 @@
     box-shadow: v.$boxShadow;
     display: grid;
     grid-template-rows: 40px 1fr;
-    margin: 4rem 2rem 0rem 2rem;
-    min-height: inherit;
-    overflow-x: auto;
+    margin: 1rem 2rem 0rem 2rem;
 
     @include m.tablet {
-        height: calc(100vh - 180px);
-        margin: 2rem 0 4rem 2rem;
+        min-height: calc(100vh - 170px);
+        margin: 1rem 0 4rem 2rem;
         // width: calc(100% - 80%);
     }
 
@@ -46,11 +44,13 @@
 
     .forms-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(130px, 1fr));
+        overflow-x: auto;
+        overflow-y: auto;
 
         @include m.tablet {
             grid-template-columns: none;
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(3, minmax(130px, 1fr));
         }
 
         .form-item {
@@ -59,16 +59,24 @@
             display: grid;
             background-color: lighten(v.$gris, 35%);
             border-radius: v.$radiusContenedor;
-            height: 120px;
-            padding-inline: 1rem;
-            width: 80%;
+            grid-template-rows: repeat(2, 1fr);
+            height: 70%; //70
+            min-height: 70%;
+            padding-inline: 1.3rem;
+            width: 80%; //80
             margin-inline: auto;
 
+            @include m.tablet {
+                height: 80%;
+            }
+
+            &:hover {
+                background-color: lighten(v.$gris, 30%);
+            }
+
             &:last-child {
-                >p {
+                .form-name>p {
                     &::after {
-                        margin-block: auto;
-                        text-align: center;
                         content: "Plan de Riego";
 
                         @include m.desktop {
@@ -78,24 +86,24 @@
                 }
             }
 
-            &:hover {
-                background-color: lighten(v.$gris, 30%);
+            .form-name {
+
+                p {
+                    line-height: 1.5;
+                    font-size: 1.5rem;
+                    text-align: center;
+                }
+            }
+
+
+            .svg-block {
+                display: grid;
+                align-content: end;
+                justify-content: center;
+                // place-content: center;
             }
 
         }
-
-        p {
-            font-size: 1.5rem;
-            text-align: center;
-        }
-
-        .svg-block {
-            align-content: end;
-            display: grid;
-            justify-content: center;
-            padding-block-start: 2rem;
-        }
-
     }
 
     .senara-menu {
@@ -159,15 +167,9 @@
     }
 
     a {
-        display: block;
-        padding: 1.5rem 3rem;
         transition-property: background-color;
         transition-duration: 300ms;
-        //text-transform: uppercase;
-        //font-weight: bold;
         font-size: 2.4rem;
-        margin-bottom: 0 !important;
-        text-align: center;
 
         >span {
             padding-left: 0.7rem;
@@ -175,12 +177,6 @@
 
         >i:last-child {
             float: right;
-        }
-
-        @include m.tablet {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            text-align: left;
         }
     }
 

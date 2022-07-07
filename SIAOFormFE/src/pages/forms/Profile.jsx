@@ -8,6 +8,8 @@ import { faUser, faKey, faAddressCard, faEnvelope, faPhone } from '@fortawesome/
 
 import { useAuth } from '../../hooks/useAuth'
 import { getData } from '../../helpers/loadUserData'
+import { getIdentification } from '../../helpers/decoding'
+import { updateUser } from '../../services/userServices'
 
 const Profile = () => {
     const { user, token } = useAuth()
@@ -69,7 +71,7 @@ const Profile = () => {
         loadData()
     }, [])
 
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
         const formData = {
             ...data,
             ...values,
@@ -77,7 +79,9 @@ const Profile = () => {
             canton: statusCanton
         }
 
-        console.log(formData)
+        const id = getIdentification(token)
+        const res = await updateUser(id, values, token)
+        console.log(res)
     }
 
     return (
@@ -106,9 +110,6 @@ const Profile = () => {
                                         <div className="forms-content">
                                             <div>
                                                 <div className="senara-form-group">
-                                                    {errors.fullName && touched.fullName ? (
-                                                        <div className="senara-actions">{errors.fullName}</div>
-                                                    ) : null}
                                                     <Field
                                                         id="fullName"
                                                         name="fullName"
@@ -121,9 +122,6 @@ const Profile = () => {
                                                     <FontAwesomeIcon icon={faAddressCard} />
                                                 </div>
                                                 <div className="senara-form-group">
-                                                    {errors.email && touched.email ? (
-                                                        <div className="senara-actions">{errors.email}</div>
-                                                    ) : null}
                                                     <Field
                                                         id="email"
                                                         name="email"
@@ -136,9 +134,6 @@ const Profile = () => {
                                                     <FontAwesomeIcon icon={faEnvelope} />
                                                 </div>
                                                 <div className="senara-form-group">
-                                                    {errors.userName && touched.userName ? (
-                                                        <div className="senara-actions">{errors.userName}</div>
-                                                    ) : null}
                                                     <Field
                                                         id="userName"
                                                         name="userName"
@@ -151,9 +146,6 @@ const Profile = () => {
                                                     <FontAwesomeIcon icon={faUser} />
                                                 </div>
                                                 <div className="senara-form-group">
-                                                    {errors.password && touched.password ? (
-                                                        <div className="senara-actions">{errors.password}</div>
-                                                    ) : null}
                                                     <Field
                                                         id="password"
                                                         name="password"
@@ -167,22 +159,24 @@ const Profile = () => {
                                                 </div>
                                                 <div className="senara-form-group">
                                                     {errors.phone && touched.phone ? (
-                                                        <div className="senara-actions">{errors.phone}</div>
+                                                        <div className="a-alert">{errors.phone}</div>
                                                     ) : null}
                                                     <Field
                                                         id="phone"
                                                         name="phone"
                                                         type="tel"
-                                                        placeholder="Teléfono"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
+                                                    <span className='highlight'></span>
+                                                    <label> Telefono </label>
                                                     <FontAwesomeIcon icon={faPhone} />
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="senara-form-group">
                                                     {errors.province && touched.province ? (
-                                                        <div className="senara-actions">{errors.province}</div>
+                                                        <div className="a-alert">{errors.province}</div>
                                                     ) : null}
                                                     <Field
                                                         id="province"
@@ -203,7 +197,7 @@ const Profile = () => {
                                                 </div>
                                                 <div className="senara-form-group">
                                                     {errors.canton && touched.canton ? (
-                                                        <div className="senara-actions">{errors.canton}</div>
+                                                        <div className="a-alert">{errors.canton}</div>
                                                     ) : null}
                                                     <Field
                                                         id="canton"
@@ -225,7 +219,7 @@ const Profile = () => {
                                                 </div>
                                                 <div className="senara-form-group">
                                                     {errors.district && touched.district ? (
-                                                        <div className="senara-actions">{errors.district}</div>
+                                                        <div className="a-alert">{errors.district}</div>
                                                     ) : null}
                                                     <Field
                                                         id="district"
@@ -245,7 +239,7 @@ const Profile = () => {
                                                 </div>
                                                 <div className="senara-form-group">
                                                     {errors.exactAddress && touched.exactAddress ? (
-                                                        <div className="senara-actions">{errors.exactAddress}</div>
+                                                        <div className="a-alert">{errors.exactAddress}</div>
                                                     ) : null}
                                                     <Field
                                                         id="exactAddress"

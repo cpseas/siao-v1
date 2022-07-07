@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form, Field, FieldArray } from 'formik'
 import * as Yup from 'yup'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,8 @@ import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 import { useAuth } from '../../hooks/useAuth'
 import { getData } from '../../helpers/loadUserData'
+
+import Crops from './Crops'
 
 const FormPlanRiego = () => {
     const { user, token } = useAuth()
@@ -42,18 +44,25 @@ const FormPlanRiego = () => {
     return (
         <>
             <div className='title-container'>
-                <p> Perfil </p>
+                <p> Plan de Riego DRAT </p>
             </div>
             <div className="senara-forms">
                 <Formik
                     initialValues={{
-                        cultivo: '',
+                        crops: [
+                            {
+                                cultivo: '',
+                                toma: '',
+                                area: '',
+                                fecha: ''
+                            }
+                        ],
                         date: ''
                     }}
                     onSubmit={values => handleSubmit(values)}
                     validationSchema={planRiegoSchema}
                 >
-                    {({ errors, touched }) => {
+                    {({ errors, touched, values }) => {
                         return (
                             <Form className="forms-container">
                                 {loading
@@ -68,6 +77,7 @@ const FormPlanRiego = () => {
                                                         type="text"
                                                         value={data.fullName}
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Nombre Completo </label>
@@ -79,6 +89,7 @@ const FormPlanRiego = () => {
                                                         name="identification"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Identificación </label>
@@ -93,6 +104,7 @@ const FormPlanRiego = () => {
                                                         name="nombreJuridico"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Persona Jurifica </label>
@@ -104,6 +116,7 @@ const FormPlanRiego = () => {
                                                         name="cedulaJuridica"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Cedula Juridica </label>
@@ -118,6 +131,7 @@ const FormPlanRiego = () => {
                                                         name="standardNumber"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> # Padrón </label>
@@ -130,6 +144,7 @@ const FormPlanRiego = () => {
                                                         name="hydraulicSector"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Sector Hidraulico </label>
@@ -141,6 +156,7 @@ const FormPlanRiego = () => {
                                                         name="subDistrict"
                                                         type="text"
                                                         className="floating-input"
+                                                        placeholder=" "
                                                     />
                                                     <span className="highlight"></span>
                                                     <label> Subdistrito </label>
@@ -148,13 +164,13 @@ const FormPlanRiego = () => {
                                                 </div>
                                             </div>
 
-
                                             <div className="senara-form-group">
                                                 <Field
                                                     id="irrigableSurface"
                                                     name="irrigableSurface"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Superficie Regable </label>
@@ -163,27 +179,7 @@ const FormPlanRiego = () => {
 
                                             {/* CROPS HERE */}
 
-                                            {/* <table id='senara-table'>
-                                                <thead>
-                                                    <tr>
-                                                        <th> Cultivo </th>
-                                                        <th> Toma </th>
-                                                        <th> Area </th>
-                                                        <th> Fecha Propuesta </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                        <td><input type="text" /></td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <button onClick={newCrop}> Agregar </button>
-                                                </tfoot>
-                                            </table> */}
+                                            <Crops touched={touched} errors={errors} values={values} />
 
                                             {/* CROPS END HERE */}
 
@@ -198,7 +194,6 @@ const FormPlanRiego = () => {
                                                     className="floating-input"
                                                 />
                                                 <span className="highlight"></span>
-                                                <label> Fecha </label>
                                                 <FontAwesomeIcon icon={faAddressCard} />
                                             </div>
 
@@ -208,6 +203,7 @@ const FormPlanRiego = () => {
                                                     name="cycle"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Superficie Regable </label>
@@ -220,6 +216,7 @@ const FormPlanRiego = () => {
                                                     name="signatureOrID"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Firma o Identificación </label>
@@ -232,6 +229,7 @@ const FormPlanRiego = () => {
                                                     name="phone"
                                                     type="tel"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Teléfono </label>
@@ -244,6 +242,7 @@ const FormPlanRiego = () => {
                                                     name="direction"
                                                     type="text"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Dirección </label>
@@ -256,6 +255,7 @@ const FormPlanRiego = () => {
                                                     name="email"
                                                     type="email"
                                                     className="floating-input"
+                                                    placeholder=" "
                                                 />
                                                 <span className="highlight"></span>
                                                 <label> Correo Electronico </label>
