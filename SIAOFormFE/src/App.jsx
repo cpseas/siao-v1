@@ -28,6 +28,7 @@ function App() {
           <Route path="/dashboard" element={<HomeLayouts />}>
             <Route path="profile" element={<Profile />} />
             <Route path="form-de-quejas" element={<FormDeQuejas />} />
+            <Route path="plan-riego" element={<FormPlanRiego />} />
           </Route>
         </Routes>
       </AuthProvider>
