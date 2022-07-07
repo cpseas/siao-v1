@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useOutletContext } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
-
+import PDFSolicitudRiego from '../PDFs/PDFSolicitudRiego'
 import * as Yup from 'yup'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,7 +37,8 @@ const FormSolicitudRiego = () => {
     fechaReciboRiego: Yup.date().required('Este campo es necesario'),
   })
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (user, values) => {
+    //PDFSolicitudRiego(user)
     const formData = {}
 
     console.log(formData)
